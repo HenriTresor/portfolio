@@ -321,6 +321,7 @@ footer {
     color: white !important;
     align-items: center;
     justify-content: center;
+    z-index: 9999;
 }
 
 .hamburger nav.active .list-items{
