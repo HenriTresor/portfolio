@@ -221,3 +221,32 @@ textarea:focus{
     margin: 1em 0 !important;
   }
 }
+
+.loader{
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-content: center;
+}
+
+.loader .loading-component{
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 4px solid black;
+  border-bottom: 4px solid white;
+  border-radius: 50%;
+  animation: loader 1s infinite ease-in-out forwards;
+}
+
+@keyframes loader {
+from{
+  transform: rotate(0deg);
+}
+to{
+  transform: rotate(360deg);
+}
+}
