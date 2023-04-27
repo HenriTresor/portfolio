@@ -68,24 +68,26 @@ const Contacts = () => {
                     >
                         <form action="">
                             <Grid container spacing={4}>
-                                <Grid item sm={6}>
+                                <Grid item sm={6} md={6}>
                                     <input type="text"
                                         autoComplete='off'
                                         placeholder='enter your names' name='names' />
                                 </Grid>
-                                <Grid item sm={6}>
+                                <Grid item sm={6} md={6}>
                                     <input type="text"
+                                        style={{width:'100%'}}
                                         autoComplete='off'
                                         placeholder='enter your email' name='email' />
                                 </Grid>
-                                <Grid item sm={12}>
-                                    <textarea name="" id="" cols="10" rows="25"
+                                <Grid item sm={12} md={12}> 
+                                    <textarea name="" id="" cols="80"
+                                        rows="25"
                                         autoComplete='off'
                                         placeholder='input your message...'></textarea>
                                 </Grid>
-                                <Grid item sm={12}>
+                                <Grid item sm={12} md={12}>
                                     <Button
-                                    variant='contained'
+                                        variant='contained'
                                     >
                                         Send
                                     </Button>

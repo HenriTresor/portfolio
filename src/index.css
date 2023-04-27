@@ -202,6 +202,7 @@ body{
   color: rgb(74, 70, 70);
   width: 100%;
   resize: vertical;
+  /* width: 100dvw; */
   font-weight: bold;
   padding: 1.2em;
 }
