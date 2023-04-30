@@ -1,6 +1,6 @@
 // import React from 'react'
 import { Card, Box, Button } from "@mui/material"
-import { ArrowOutward } from '@mui/icons-material'
+import { ArrowOutward, GitHub } from '@mui/icons-material'
 import propTypes from 'prop-types'
 
 const WorkCard = (props) => {
@@ -38,14 +38,29 @@ const WorkCard = (props) => {
 
                   <div>
                       <Button
+                          variant="outlined"
+                          startIcon={<ArrowOutward />}
                           sx={{
-                          float:'right'
+                          float:'right',ml:2
                           }}
                           onClick={() => {
                               window.open(props.link)
                           }}
                       >
-                          <ArrowOutward  />
+                         live
+                      </Button>
+                      <Button
+                          startIcon={<GitHub />}
+                          variant="contained"
+                          color='info'
+                          sx={{
+                          float:'right'
+                          }}
+                          onClick={() => {
+                              window.open(props.github)
+                          }}
+                      >
+                          github
                       </Button>
                   </div>
               </Box>
@@ -58,7 +73,8 @@ WorkCard.propTypes = {
     title: propTypes.string.isRequired,
     description: propTypes.string.isRequired,
     image: propTypes.string.isRequired,
-    link:propTypes.string
+    link:propTypes.string,
+    github:propTypes.string
 }
 
 export default WorkCard
