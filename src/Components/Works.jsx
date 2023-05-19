@@ -62,7 +62,7 @@ const Works = () => {
                       <WorkCard
                           image={revo}
                           title={'REVO online store'}
-                          link='https://github.com/HenriTresor/revo-store'
+                          link='https://revo-store.vercel.app'
                           github='https://github.com/HenriTresor/revo-store'
                         description="Online e-commerce platform that offers a variety of different products"
                       />
