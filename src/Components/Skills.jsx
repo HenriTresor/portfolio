@@ -7,7 +7,7 @@ import {motion} from 'framer-motion'
 const skillsArr = [
     {
         skill: "HTML & CSS",
-        value:100
+        value:99
     },
     {
         skill: "PHP",
@@ -15,7 +15,11 @@ const skillsArr = [
     },
     {
         skill: "ReactJS",
-        value:89
+        value:90
+    },
+    {
+        skill: "NextJS",
+        value:80
     },
     {
         skill: "NodeJS",
