@@ -7,6 +7,7 @@ import bidify from '../assets/bidify.png'
 import gitUsers from '../assets/git-users.png'
 import revo from '../assets/revo.png'
 import { motion } from "framer-motion"
+import Pixel from '../assets/pixel-portal.png'
 
 
 const Works = () => {
@@ -34,10 +35,22 @@ const Works = () => {
                   >
                       <WorkCard
                           image={sociala}
-                          title={'sociala'}
+                          title={'Sociala'}
                           github='https://github.com/HenriTresor/react-social'
                           description="A social media application where users can posts, create pages for their organisations and chat in real time"
                           link='https://sociala.onrender.com'
+                      />
+                  </Grid>
+                  <Grid item sm={12}
+                      md={4}
+                   
+                  >
+                      <WorkCard
+                          image={Pixel}
+                          title={'Pixel Portal'}
+                          github='https://github.com/HenriTresor/pixel-portal'
+                          description="A gaming platform that provide gamers with different games and information about them."
+                          link='https://https://github.com/HenriTresor/pixel-portal'
                       />
                   </Grid>
                   <Grid item sm={12} md={4}>
