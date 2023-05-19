@@ -50,7 +50,7 @@ const Works = () => {
                           title={'Pixel Portal'}
                           github='https://github.com/HenriTresor/pixel-portal'
                           description="A gaming platform that provide gamers with different games and information about them."
-                          link='https://https://github.com/HenriTresor/pixel-portal'
+                          link='https://pixel-portal-q.vercel.app/'
                       />
                   </Grid>
                   <Grid item sm={12} md={4}>
