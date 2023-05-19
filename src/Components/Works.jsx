@@ -7,7 +7,7 @@ import bidify from '../assets/bidify.png'
 import gitUsers from '../assets/git-users.png'
 import revo from '../assets/revo.png'
 import { motion } from "framer-motion"
-import Pixel from '../assets/pixel-portal.png'
+import Pixel from '../assets/pixelPortal.png'
 
 
 const Works = () => {
