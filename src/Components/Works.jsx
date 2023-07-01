@@ -8,7 +8,7 @@ import gitUsers from '../assets/git-users.png'
 import revo from '../assets/revo.png'
 import { motion } from "framer-motion"
 import Pixel from '../assets/pixelPortal.png'
-
+import twittify from '../assets/twittify.png'
 
 const Works = () => {
   return (
@@ -62,15 +62,7 @@ const Works = () => {
                           description="A real time auctioning application where users can create auctions and place bids"
                       />
                   </Grid>
-                  <Grid item sm={12} md={4}>
-                      <WorkCard
-                          image={gitUsers}
-                          github='https://github.com/HenriTresor/git-users-react'
-                          title={'Github users'}
-                          link='https://github-userst.netlify.app/'
-                        description="An application which uses Github API to retrieve and view different github accounts"
-                      />
-                  </Grid>
+                 
                   <Grid item sm={12} md={4}>
                       <WorkCard
                           image={revo}
@@ -78,6 +70,15 @@ const Works = () => {
                           link='https://revo-store.vercel.app'
                           github='https://github.com/HenriTresor/revo-store'
                         description="Online e-commerce platform that offers a variety of different products"
+                      />
+                  </Grid>
+                  <Grid item sm={12} md={4}>
+                      <WorkCard
+                          image={twittify}
+                          title={'Twittify - Twitter Clone'}
+                          link='https://twittify-1.vercel.app'
+                          github='https://github.com/HenriTresor/twittify'
+                        description="A Social media platform just like Twitter"
                       />
                   </Grid>
               </Grid>
