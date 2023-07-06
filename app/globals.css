@@ -8,3 +8,12 @@
     --text-color: #ededed;
     --main-color: #00abf0;
 }
+
+
+.nav-list-item{
+    @apply cursor-pointer font-bold opacity-90
+}
+
+.btn{
+    @apply cursor-pointer p-3  border-2 border-[#00abf0] ml-2 rounded-lg capitalize font-bold tracking-widest
+}
