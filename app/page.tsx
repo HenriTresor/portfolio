@@ -6,16 +6,16 @@ export default function Home() {
     <div className=' bg-[#081b29] h-max-screen'>
       <Header />
       <div className='w-full flex h-screen justify-around p-5 items-center'>
-        <div className='w-[50%] flex flex-col gap-4 text-left ml-20'>
+        <div className='flex flex-col gap-4 ml-0 md:ml-20 w-full text-center md:text-left md:p-0'>
           <h1 className='text-[#ededed] text-[2em]'>Hi, I am Henri Tresor</h1>
           <h4 className='text-[#00abf0] font-bold tracking-widest text-[1.4em]'>Full-stack engineer</h4>
-          <p className='text-[#ededed] text-left tracking-wider'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et modi ducimus sint vitae quisquam recusandae odio atque nihil ea minima similique in ab reprehenderit nesciunt, voluptas cumque molestias. Facilis, voluptate.</p>
-          <div>
+          <p className='text-[#ededed] text-center tracking-wider md:text-left'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et modi ducimus sint vitae quisquam recusandae odio atque nihil ea minima similique in ab reprehenderit nesciunt, voluptas cumque molestias. Facilis, voluptate.</p>
+          <div className='flex items-center gap-2'>
             <button className='btn bg-[#00abf0] text-black'>hire me</button>
-            <button className='btn text-[#00abf0]'>Let&apos;s talk</button>
+            <button className='btn text-[#00abf0]'>Contact me</button>
           </div>
         </div>
-        <div className='w-[50%] hidden justify-center gap-2 md:flex'>
+        <div className='w-full hidden justify-center gap-2 md:flex'>
           <div className='w-[100px] h-[100px] bg-sky-500 rounded-full scale-50'>
 
           </div>

@@ -15,5 +15,9 @@
 }
 
 .btn{
-    @apply cursor-pointer p-3  border-2 border-[#00abf0] ml-2 rounded-lg capitalize font-bold tracking-widest
+    @apply cursor-pointer p-3  border-2 border-[#00abf0] ml-2 rounded-lg capitalize font-bold tracking-widest w-full mt-5
+}
+
+.bar{
+    @apply w-[30px] h-1 bg-white rounded-sm cursor-pointer
 }
