@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div className=' bg-[#081b29] h-max-screen'>
+    <div className=' bg-gradient-to-br from-[#112e42] from-45%  to-[#00abf0]  h-max-screen'>
       <Header />
       <div className='w-full flex h-screen justify-around p-5 items-center'>
         <div className='flex flex-col gap-4 ml-0 md:ml-20 w-full text-center md:text-left md:p-0'>
@@ -20,7 +20,6 @@ export default function Home() {
 
           </div>
           <div className='w-[100px] h-[100px] border-4 border-[#00abf0] rounded-full scale-[1.5]'>
-
           </div>
           <div className='w-[100px] h-[100px] bg-sky-500 rounded-full scale-50'>
 

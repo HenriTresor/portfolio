@@ -1,12 +1,28 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 
 type Props = {}
 
 const Header = (props: Props) => {
+
+    const headerRef = useRef<any>(null)
+    const scroll = () => {
+        const sticky = headerRef.current?.offsetTop
+        if (window.scrollY   >= sticky) {
+            headerRef.current.classList.add('bg-blue')
+        }
+    }
+    useEffect(() => {
+      
+        window.addEventListener('scroll', scroll)
+        return () => window.removeEventListener('scroll', scroll)
+    }, [])
     return (
         <div
-            className='text-[#ededed] flex justify-around pt-4 w-full'
+            ref={headerRef}
+            className='text-[#ededed] flex justify-around p-4 items-center w-full  top-0'
         >
             <Link href={'/'}>
                 <h2 className='text-2xl font-bold'>
