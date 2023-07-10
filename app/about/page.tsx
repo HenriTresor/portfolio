@@ -40,7 +40,7 @@ const About = (props: Props) => {
                         <h1>{skill.level}%</h1>
                       </span>
                       <div className='relative w-full p-1 outline outline-2 outline-[#00abf0] overflow-hidden rounded-lg'>
-                        <div className={`absolute left-0 w-[${skill.level}%] h-full bg-[#00abf0] top-0 `}></div>
+                        <div className={`absolute left-0 w-[${skill.level}] h-full bg-[#00abf0] top-0 `}></div>
                       </div>
                     </div>
                   ))
@@ -59,7 +59,7 @@ const About = (props: Props) => {
                         <h1>{skill.level}%</h1>
                       </span>
                       <div className='relative w-full p-1 outline outline-2 outline-[#00abf0] overflow-hidden rounded-lg'>
-                        <div className={`absolute left-0 w-[${skill.level}%] h-full bg-[#00abf0] top-0 `}></div>
+                        <div className={`absolute left-0 w-[${skill.level}] h-full bg-[#00abf0] top-0 `}></div>
                       </div>
                     </div>
                   ))
