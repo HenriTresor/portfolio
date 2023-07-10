@@ -1,7 +1,7 @@
 import Header from '@/components/Header'
 import React from 'react'
 import Image from 'next/image'
-import { CodingSKills, professionalSkills } from '@/data/skills'
+import { CodingSKills, professionalSkills } from '@/app/data/skills'
 
 type Props = {}
 
