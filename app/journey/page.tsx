@@ -5,12 +5,12 @@ type Props = {}
 
 function Education({ }: Props) {
     return (
-        <div className='bg-[#081b29] h-max-screen'>
+        <div className='bg-[#081b29] h-min-screen'>
             <Header />
-            <div className='h-screen flex flex-col p-5 justify-start mt-20 items-center gap-10 text-slate-100' >
+            <div className='h-max-screen md:h-screen flex flex-col p-5 justify-start mt-20 items-center gap-10 text-slate-100' >
                 <h1 className='text-[2em]'>My <span className='text-[#00baf0]'>Journey</span></h1>
 
-                <div className='flex justify-center items-start w-full'>
+                <div className='flex justify-center items-start w-full flex-col md:flex-row'>
                     <div className='ml-10'>
                         <h1>Education</h1>
                         <div className='box'>
