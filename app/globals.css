@@ -33,3 +33,7 @@
 .box h1 {
     @apply text-[1.1em] tracking-wider
 }
+
+.box progress::-webkit-progress-value {
+    @apply text-white
+}
