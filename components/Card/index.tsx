@@ -15,15 +15,16 @@ function Card(project: Props) {
     return (
         <>
             <div
-                className='border-2 border-white p-3 mb-3 rounded-lg relative flex flex-col justify-end'
+                className='border-2 border-white p-3 mb-3 rounded-lg relative flex flex-col justify-between'
             >
-                <div className='mb-5'>
+                <div className='mb-5 bg-black flex items-start'>
                     <Image
                         src={project.image}
-                        width={'100'}
-                        height={'100'}
+                        width={'1000000'}
+                        height={'1000000'}
                         alt={`${project.description}`}
-                        className='w-full object-cover'
+                        className='w-full object-cover h-50'
+                        
                     />
               </div>
                 <h1 className='text-[2em] mb-4 '>{project.name}</h1>
