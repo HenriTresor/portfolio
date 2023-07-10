@@ -1,43 +1,43 @@
 const CodingSKills = [
   {
     level: "99%",
-    skil: "HTML",
+    skill: "HTML",
   },
   {
     level: "99%",
-    skil: "CSS",
+    skill: "CSS",
   },
   {
     level: "99%",
-    skil: "Tailwind",
+    skill: "Tailwind",
   },
   {
     level: "99%",
-    skil: "Bootstrap",
+    skill: "Bootstrap",
   },
   {
     level: "99%",
-    skil: "Vanilla JavaScript",
+    skill: "Vanilla JavaScript",
   },
   {
     level: "93%",
-    skil: "ReactJS",
+    skill: "ReactJS",
   },
   {
     level: "90%",
-    skil: "NextJS",
+    skill: "NextJS",
   },
   {
     level: "94%",
-    skil: "Nodejs",
+    skill: "Nodejs",
   },
   {
     level: "99%",
-    skil: "MongoDB",
+    skill: "MongoDB",
   },
   {
     level: "95%",
-    skil: "PHP",
+    skill: "PHP",
   },
 ];
 

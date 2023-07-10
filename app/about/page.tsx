@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import React from 'react'
 import Image from 'next/image'
 import { CodingSKills, professionalSkills } from '@/app/data/skills'
+import Skill from '@/components/Skill'
 
 type Props = {}
 
@@ -24,7 +25,7 @@ const About = (props: Props) => {
             I am a skilled software engineer with a strong foundation in coding and a passion for creating innovative solutions. With expertise in languages such as Python and C, I have successfully developed and deployed robust software applications. My proficiency extends to database management, web development, and software testing, ensuring seamless functionality and user satisfaction. Adaptable and detail-oriented, I thrive in collaborative environments where I can leverage my problem-solving skills to overcome complex challenges. Committed to staying at the forefront of technological advancements, I continuously seek opportunities to expand my knowledge and contribute to cutting-edge projects. With a proven track record of delivering high-quality software solutions, I am ready to make a valuable impact in the field of software engineering.
           </p>
 
-      </div>
+        </div>
         <div className='text-slate-100 w-full text-center'>
           <h1 className='text-[3em] text-white'>My <span className='text-[#00abf0]'>Skills</span></h1>
 
@@ -34,15 +35,7 @@ const About = (props: Props) => {
               <div className='box w-full'>
                 {
                   CodingSKills && CodingSKills.map(skill => (
-                    <div className='progress w-full mt-4 p-2' key={skill.skil}>
-                      <span className='flex justify-between mb-2 '>
-                        <h1>{skill.skil}</h1>
-                        <h1>{skill.level}</h1>
-                      </span>
-                      <div className='relative w-full p-1 outline outline-2 outline-[#00abf0] overflow-hidden rounded-lg'>
-                        <div className={`absolute left-0 w-[${skill.level}] h-full bg-[#00abf0] top-0 `}></div>
-                      </div>
-                    </div>
+                    <Skill {...skill} key={skill.skill} />
                   ))
                 }
               </div>
@@ -53,16 +46,7 @@ const About = (props: Props) => {
               <div className='box w-full'>
                 {
                   professionalSkills && professionalSkills.map(skill => (
-                    <div className='progress w-full mt-4 p-2' key={skill.skill}>
-                      <span className='flex justify-between mb-2 '>
-                        <h1>{skill.skill}</h1>
-                        <h1>{skill.level}</h1>
-                      </span>
-                      <div className='relative w-full p-1 outline outline-2 outline-[#00abf0] overflow-hidden rounded-lg'>
-                        <div className={`absolute left-0 w-[${(skill.level)}] h-full bg-[#00abf0] top-0 `}></div>
-                      </div>
-                      
-                    </div>
+                    <Skill {...skill} key={skill.skill} />
                   ))
                 }
               </div>
