@@ -17,13 +17,13 @@ function Card(project: Props) {
             <div
                 className='border-2 border-white p-3 mb-3 rounded-lg relative flex flex-col justify-between'
             >
-                <div className='mb-5 bg-black flex items-start'>
+                <div className='mb-5 bg-black flex items-start h-[200px]'>
                     <Image
                         src={project.image}
                         width={'1000000'}
                         height={'1000000'}
                         alt={`${project.description}`}
-                        className='w-full object-cover h-50'
+                        className='w-full object-cover h-[100%]'
                         
                     />
               </div>
