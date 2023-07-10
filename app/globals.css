@@ -21,3 +21,15 @@
 .bar{
     @apply w-[30px] h-1 bg-white rounded-sm cursor-pointer
 }
+
+.box{
+    @apply w-[80%] border-2 border-[#00abf0] rounded-lg p-2 mb-5 flex gap-5 flex-col mt-3 
+}
+
+.box p {
+    @apply  opacity-90
+}
+
+.box h1 {
+    @apply text-[1.1em] tracking-wider
+}

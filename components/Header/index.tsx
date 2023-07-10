@@ -35,8 +35,11 @@ const Header = (props: Props) => {
                     <Link href={'/about'}>
                         <li className='nav-list-item'>About</li>
                     </Link>
-                    <Link href={'/education'}>
-                        <li className='nav-list-item'>Education</li>
+                    <Link href={'/journey'}>
+                        <li className='nav-list-item'>Journey</li>
+                    </Link>
+                    <Link href={'/projects'}>
+                        <li className='nav-list-item'>Projects</li>
                     </Link>
                     <Link href={'/contacts'}>
                         <li className='nav-list-item'>Contacts</li>
