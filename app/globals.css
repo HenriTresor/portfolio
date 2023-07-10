@@ -39,5 +39,5 @@
 }
 
 div input, div textarea{
-    @apply  p-4 ml-2 bg-[#112e42] text-white border-[1px] border-white rounded-md
+    @apply  p-4 ml-2 bg-[#112e42] text-white border-[1px] border-white rounded-md md:w-auto w-full mb-3
 }
