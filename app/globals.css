@@ -11,7 +11,7 @@
 
 
 .nav-list-item{
-    @apply cursor-pointer font-bold opacity-90
+    @apply cursor-pointer font-bold opacity-90 tracking-wider
 }
 
 .btn{
@@ -44,4 +44,16 @@
 
 div input, div textarea{
     @apply  p-4 ml-2 bg-[#112e42] text-white border-[1px] border-white rounded-md md:w-auto w-full mb-3
+}
+
+.hamburger{
+    @apply md:w-[50%]  shadow-lg shadow-black gap-0 flex-col flex bg-[rgba(0,0,0,0.79)] pt-5 pb-5 text-white absolute w-[80%] left-[50%] top-[10%] rounded-md  translate-x-[-50%] text-center
+}
+
+.hamburger .nav-list-item{
+    @apply w-full m-0 p-2 mb-5 transition duration-300 ease-in-out
+}
+
+.hamburger .nav-list-item:hover{
+   @apply bg-white text-black 
 }

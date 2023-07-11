@@ -12,7 +12,7 @@ function Skills({}: Props) {
           <div className='text-slate-100 w-full text-center mt-20'>
               <h1 className='text-[3em] text-white'>My <span className='text-[#00abf0]'>Skills</span></h1>
 
-              <div className='flex justify-center items-start w-full mt-10'>
+              <div className='flex justify-center flex-col lg:flex-row items-start w-full mt-10'>
                   <div className='ml-10 w-full'>
                       <h1>Coding Skills</h1>
                       <div className='box w-full'>
