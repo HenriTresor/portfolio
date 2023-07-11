@@ -7,6 +7,7 @@ type Props = {}
 
 const Header = (props: Props) => {
     const headerRef = useRef<any>(null)
+    const hambRef = useRef<any>(null)
     const navRef = useRef<any>(null)
     const scroll = () => {
         const sticky = headerRef.current?.offsetTop
@@ -48,7 +49,10 @@ const Header = (props: Props) => {
                 </Link>
             </ul>
 
-            <div className='flex-col gap-1 lg:hidden flex' onClick={() => navRef.current?.classList.toggle('hamburger')}>
+            <div className=' flex-col gap-1 lg:hidden flex' onClick={() => {
+                navRef.current?.classList.toggle('hamburger')
+                hambRef.current.classList.toggle('active')
+            }} ref={hambRef}>
                 <span className="bar"></span>
                 <span className="bar"></span>
                 <span className="bar"></span>

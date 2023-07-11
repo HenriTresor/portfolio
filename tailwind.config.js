@@ -12,6 +12,9 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        'pulse': 'pulse 2s forwards 1'
+      }
     },
   },
   plugins: [],

@@ -47,7 +47,8 @@ div input, div textarea{
 }
 
 .hamburger{
-    @apply md:w-[50%]  shadow-lg shadow-black gap-0 flex-col flex bg-[rgba(0,0,0,0.79)] pt-5 pb-5 text-white absolute w-[80%] left-[50%] top-[10%] rounded-md  translate-x-[-50%] text-center
+    @apply md:w-[50%]  shadow-lg shadow-black gap-0 flex-col flex bg-[rgba(0,0,0,0.79)] pt-5 pb-5 text-white absolute w-[80%] left-[50%] top-[10%] rounded-md  translate-x-[-50%] text-center animate-pulse
+    
 }
 
 .hamburger .nav-list-item{
@@ -56,4 +57,14 @@ div input, div textarea{
 
 .hamburger .nav-list-item:hover{
    @apply bg-white text-black 
+}
+
+.active .bar:nth-child(2){
+    @apply opacity-0
+}
+.active .bar:nth-child(1){
+    @apply rotate-45
+}
+.active .bar:nth-child(3){
+    @apply -rotate-45 -translate-y-4    
 }
