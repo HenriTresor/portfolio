@@ -47,7 +47,7 @@ div input, div textarea{
 }
 
 .hamburger{
-    @apply md:w-[50%]  shadow-lg shadow-black gap-0 flex-col flex bg-[rgba(0,0,0,0.79)] pt-5 pb-5 text-white absolute w-[80%] left-[50%] top-[10%] rounded-md  translate-x-[-50%] text-center animate-pulse
+    @apply md:w-[50%]  shadow-lg shadow-black gap-0 flex-col flex bg-[rgba(0,0,0,0.79)] pt-5 pb-5 z-50 text-white absolute w-[80%] left-[50%] top-[10%] rounded-md  translate-x-[-50%] text-center animate-pulse
     
 }
 
