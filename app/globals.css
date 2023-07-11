@@ -15,7 +15,11 @@
 }
 
 .btn{
-    @apply cursor-pointer p-3  border-2 border-[#00abf0] ml-2 rounded-lg capitalize font-bold tracking-widest w-full mt-5
+    @apply cursor-pointer p-3  ml-2 rounded-lg capitalize font-bold tracking-widest w-full mt-5 grid place-content-center transition duration-300 ease-in-out
+}
+
+.btn:hover{
+    @apply bg-[#081b29]
 }
 
 .bar{
