@@ -7,9 +7,9 @@ type Props = {}
 const Contacts = (props: Props) => {
   return (
 
-    <div className='bg-[#081b29] h-min-screen'>
+    <div className='bg-[#081b29] h-max-screen'>
       <Header />
-      <div className='h-max-screen md:h-screen flex flex-col p-5 justify-start mt-20 items-center gap-10 text-white text-center'>
+      <div className='h-max-screen md:h-auto flex flex-col p-5 justify-start mt-20 items-center gap-10 text-white text-center'>
         <h1 className='text-[2em] text-white'>Contact <span className='text-[#00baf0]'>Me</span></h1>
 
         <div className='flex flex-col gap-5'>
