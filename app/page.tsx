@@ -9,7 +9,7 @@ import CyclingTypewriter from "./components/CyclingTypewriter";
 import AboutMe from "./components/AboutMe";
 import Services from "./components/Services";
 import ProjectsOptimized from "./components/ProjectsOptimized";
-import TechStack from "./components/TechStack";
+import TechStackOptimized from "./components/TechStackOptimized";
 import FAQ from "./components/FAQ";
 import { SiReact, SiNextdotjs, SiNodedotjs, SiTypescript, SiPython } from "react-icons/si";
 import { useTranslation } from 'react-i18next';
@@ -290,7 +290,7 @@ export default function Home() {
       </Section>
 
       <Section id="skills" bg="panel">
-        <TechStack />
+        <TechStackOptimized />
       </Section>
 
       <Section id="faq">

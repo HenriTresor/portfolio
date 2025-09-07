@@ -48,7 +48,7 @@ export default function ProjectsOptimized() {
     ];
 
     return (
-        <div className="space-y-8">
+        <div className="space-y-8 py-5">
             {/* Header */}
             <motion.div
                 className="text-center space-y-4"
@@ -76,19 +76,18 @@ export default function ProjectsOptimized() {
                 >
                     ←
                 </button>
-                
+
                 <div className="flex gap-2">
                     {projects.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => setActiveProject(index)}
-                            className={`w-2 h-2 rounded-full transition-all ${
-                                index === activeProject ? 'bg-[var(--accent)] w-6' : 'bg-white/30'
-                            }`}
+                            className={`w-2 h-2 rounded-full transition-all ${index === activeProject ? 'bg-[var(--accent)] w-6' : 'bg-white/30'
+                                }`}
                         />
                     ))}
                 </div>
-                
+
                 <button
                     onClick={() => setActiveProject((prev) => (prev + 1) % projects.length)}
                     className="p-3 glass rounded-full hover:bg-white/10 transition-all"
@@ -113,27 +112,26 @@ export default function ProjectsOptimized() {
                 >
                     <div className="space-y-6">
                         <div className="text-5xl">{projects[activeProject].image}</div>
-                        
+
                         <div>
                             <div className="flex items-center justify-center gap-2 mb-2">
                                 <h3 className="text-2xl font-bold text-[var(--accent)]">
                                     {projects[activeProject].title}
                                 </h3>
-                                <span className={`text-xs px-2 py-1 rounded-full ${
-                                    projects[activeProject].status === 'Live' 
-                                        ? 'bg-green-500/20 text-green-400'
-                                        : 'bg-blue-500/20 text-blue-400'
-                                }`}>
+                                <span className={`text-xs px-2 py-1 rounded-full ${projects[activeProject].status === 'Live'
+                                    ? 'bg-green-500/20 text-green-400'
+                                    : 'bg-blue-500/20 text-blue-400'
+                                    }`}>
                                     {projects[activeProject].status}
                                 </span>
                             </div>
                             <p className="text-sm opacity-70">{projects[activeProject].category}</p>
                         </div>
-                        
+
                         <p className="text-base opacity-90 leading-relaxed">
                             {projects[activeProject].description}
                         </p>
-                        
+
                         <div className="flex flex-wrap justify-center gap-2">
                             {projects[activeProject].tech.map((tech) => (
                                 <span

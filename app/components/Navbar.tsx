@@ -157,9 +157,9 @@ export default function Navbar() {
                                     transition={{ duration: 0.6, delay: 0.4 }}
                                     className="mb-16"
                                 >
-                            <motion.ul
-                                initial="hidden"
-                                animate="show"
+                                    <motion.ul
+                                        initial="hidden"
+                                        animate="show"
                                         exit="hidden"
                                         variants={{
                                             hidden: {
@@ -195,17 +195,17 @@ export default function Navbar() {
                                                 }}
                                                 transition={{ duration: 0.5, ease: [0.23, 1, 0.320, 1] }}
                                             >
-                                        <motion.a
+                                                <motion.a
                                                     href={link.href}
-                                            onClick={() => setOpen(false)}
+                                                    onClick={() => setOpen(false)}
                                                     className="group block p-6 rounded-3xl  hover:bg-white/10 transition-all duration-300"
                                                     whileHover={{
                                                         x: 12,
                                                         scale: 1.02,
                                                         backgroundColor: "rgba(154, 199, 255, 0.08)"
                                                     }}
-                                            whileTap={{ scale: 0.98 }}
-                                        >
+                                                    whileTap={{ scale: 0.98 }}
+                                                >
                                                     <div className="flex items-center gap-6">
                                                         <motion.div
                                                             className="flex items-center justify-center"
@@ -237,9 +237,9 @@ export default function Navbar() {
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                         </motion.svg>
                                                     </div>
-                                        </motion.a>
-                                    </motion.li>
-                                ))}
+                                                </motion.a>
+                                            </motion.li>
+                                        ))}
                                     </motion.ul>
                                 </motion.div>
 
@@ -330,7 +330,7 @@ export default function Navbar() {
                                                     →
                                                 </motion.span>
                                             </motion.a>
-                                    </div>
+                                        </div>
                                     </motion.div>
                                 </motion.div>
 
@@ -344,7 +344,7 @@ export default function Navbar() {
                                 >
                                     <p className="text-sm opacity-60">© 2024 Henri Tresor. {t('footer.copyright')}</p>
                                 </motion.div>
-                        </div>
+                            </div>
                         </motion.div>
                     </motion.div>
                 )}
