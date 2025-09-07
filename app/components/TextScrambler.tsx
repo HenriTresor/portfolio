@@ -10,8 +10,6 @@ function scramble(el: HTMLElement) {
     if (!el.getAttribute("data-original")) el.setAttribute("data-original", original);
 
     const duration = 500; // Reduced duration for snappier feel
-    const steps = 15; // Fewer steps for better performance
-    let frame = 0;
     let animationId: number;
 
     const startTime = performance.now();
@@ -89,8 +87,9 @@ export default function TextScrambler() {
         const cleanup = scramble(el);
 
         // Clean up after animation
+        const activeAnimationsRef = activeAnimations.current;
         setTimeout(() => {
-            activeAnimations.current.delete(el);
+            activeAnimationsRef.delete(el);
             cleanup?.();
         }, 600);
 
@@ -104,11 +103,14 @@ export default function TextScrambler() {
     useEffect(() => {
         // Use passive listeners for better performance
         document.addEventListener("mouseenter", throttledHandler, { passive: true, capture: true });
-
+        
+        // Capture the current ref value
+        const currentAnimations = activeAnimations.current;
+        
         return () => {
             document.removeEventListener("mouseenter", throttledHandler, true);
             // Cancel any remaining animations
-            activeAnimations.current.clear();
+            currentAnimations.clear();
         };
     }, [throttledHandler]);
 

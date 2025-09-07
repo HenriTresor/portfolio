@@ -154,7 +154,7 @@ export default function Home() {
                       { name: "React Native", icon: <SiReact className="w-6 h-6 text-[#61DAFB]" />, delay: 0.3 },
                       { name: "TypeScript", icon: <SiTypescript className="w-6 h-6 text-[#3178C6]" />, delay: 0.4 },
                       { name: "Python", icon: <SiPython className="w-6 h-6 text-[#3776AB]" />, delay: 0.5 }
-                    ].map((tech, index) => (
+                    ].map((tech) => (
                       <motion.div
                         key={tech.name}
                         className="aspect-square glass rounded-xl flex flex-col items-center justify-center p-3 hover:bg-white/10 transition-all"

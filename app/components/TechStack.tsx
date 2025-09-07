@@ -29,7 +29,6 @@ import {
     SiPostgresql,
     SiMysql,
     SiMongodb,
-    SiGit,
     SiGithub,
     SiDocker,
     SiGooglecloud,

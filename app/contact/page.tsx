@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
 
 function Marquee() {
-    const text = " Let's Build • Something Amazing • Together • Your Vision • My Code • ";
+    const text = " Let&apos;s Build • Something Amazing • Together • Your Vision • My Code • ";
     return (
         <div className="relative overflow-hidden border-b border-white/10">
             <div className="whitespace-nowrap text-[18vw] leading-none font-extrabold opacity-10 animate-[marquee_30s_linear_infinite]">
@@ -58,9 +58,9 @@ export default function ContactPage() {
                     <div className="space-y-6">
                         <div className="space-y-4">
                             <div className="text-xs uppercase opacity-60 tracking-wide">Contact</div>
-                            <h1 className="text-5xl sm:text-7xl font-semibold leading-tight">Let's build something amazing</h1>
+                            <h1 className="text-5xl sm:text-7xl font-semibold leading-tight">Let&apos;s build something amazing</h1>
                             <p className="text-lg opacity-80 leading-relaxed">
-                                Ready to turn your ideas into reality? I'd love to hear about your project.
+                                Ready to turn your ideas into reality? I&apos;d love to hear about your project.
                                 Every message gets a personal response within 24 hours. ⚡
                             </p>
                         </div>
@@ -90,15 +90,15 @@ export default function ContactPage() {
                             <div className="space-y-2 text-sm opacity-80">
                                 <div className="flex items-center gap-3">
                                     <span className="w-6 h-6 bg-[var(--accent)]/20 rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                                    <span>I'll review your project details</span>
+                                    <span>I&apos;ll review your project details</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <span className="w-6 h-6 bg-[var(--accent)]/20 rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                                    <span>We'll schedule a consultation call</span>
+                                    <span>We&apos;ll schedule a consultation call</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <span className="w-6 h-6 bg-[var(--accent)]/20 rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                                    <span>I'll provide a detailed proposal</span>
+                                    <span>I&apos;ll provide a detailed proposal</span>
                                 </div>
                             </div>
                         </div>

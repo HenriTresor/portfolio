@@ -7,7 +7,7 @@ export default function Loading() {
         <div className="min-h-screen flex items-center justify-center">
             <motion.div
                 className="flex flex-col items-center gap-4"
-                g={{ opacity: 0 }}
+                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
             >

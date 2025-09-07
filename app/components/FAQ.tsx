@@ -41,12 +41,12 @@ export default function FAQ() {
         ];
 
     const faqIcons = [
-        <Code className="w-5 h-5" />,
-        <Clock className="w-5 h-5" />,
-        <Smartphone className="w-5 h-5" />,
-        <Settings className="w-5 h-5" />,
-        <MessageCircle className="w-5 h-5" />,
-        <Users className="w-5 h-5" />
+        <Code key="code" className="w-5 h-5" />,
+        <Clock key="clock" className="w-5 h-5" />,
+        <Smartphone key="smartphone" className="w-5 h-5" />,
+        <Settings key="settings" className="w-5 h-5" />,
+        <MessageCircle key="message" className="w-5 h-5" />,
+        <Users key="users" className="w-5 h-5" />
     ];
 
     const toggleFAQ = (index: number) => {
