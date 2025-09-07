@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-syne);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Scroll snapping container utility */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+html, body {
+  height: 100%;
+}
+
+/* Minimal color accents */
+:root {
+  --accent: #9ac7ff;
+}
+
+/* Dark/light theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+/* Glass utilities and aurora */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+}
+
+/* Scramble hover state */
+.scrambling {
+  color: var(--accent);
+  transition: color 200ms ease;
+}
+
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  inset: -20% -20% auto -20%;
+  height: 60%;
+  background: conic-gradient(from 180deg at 50% 50%, rgba(154,199,255,0.3), transparent, rgba(154,199,255,0.15), transparent);
+  filter: blur(60px);
+  transform: rotate(8deg);
+}
+.aurora::after {
+  inset: auto -10% -20% -10%;
+  height: 50%;
+  transform: rotate(-6deg);
+}
+
+@keyframes caretBlink { 0%, 60% { opacity: 1 } 61%, 100% { opacity: 0 } }
+.animate-caret { animation: caretBlink 1s step-end infinite; }
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Links */
+a { color: var(--foreground); text-decoration: none; }
+a.underline { text-decoration: underline; text-underline-offset: 2px; }
