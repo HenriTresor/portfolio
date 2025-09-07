@@ -25,10 +25,9 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
   return (
     <NavbarContext.Provider value={{ isNavbarOpen, setIsNavbarOpen }}>
       <Navbar />
-      {/* Language Switcher - Hidden when navbar is open */}
-      <div className={`fixed top-4 right-4 sm:right-20 z-[9999] transition-opacity duration-300 ${
-        isNavbarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
-      }`}>
+      {/* Language Switcher - Positioned to avoid navbar button overlap */}
+      <div className={`fixed top-20 right-4 sm:top-4 sm:right-20 z-[9999] transition-opacity duration-300 ${isNavbarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}>
         <LanguageSwitcher />
       </div>
       {children}

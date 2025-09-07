@@ -14,27 +14,22 @@ import {
     Zap,
     Coffee
 } from "lucide-react";
-import {
-    SiReact,
-    SiNextdotjs,
-    SiTypescript,
-    SiTailwindcss,
+// Lazy load icons to reduce initial bundle size
+import { 
+    SiReact, 
+    SiNextdotjs, 
+    SiTypescript, 
+    SiTailwindcss, 
     SiBootstrap,
     SiFlutter,
     SiNodedotjs,
     SiDjango,
-    SiSpring,
-    SiFlask,
-    SiFastapi,
     SiPostgresql,
-    SiMysql,
     SiMongodb,
     SiGithub,
     SiDocker,
-    SiGooglecloud,
     SiVercel,
-    SiPython,
-    SiUnity
+    SiPython
 } from "react-icons/si";
 
 export default function TechStack() {
@@ -66,7 +61,7 @@ export default function TechStack() {
                 { name: "Expo", level: 85, icon: <Globe className="w-6 h-6 text-[var(--accent)]" /> },
                 { name: "iOS Dev", level: 70, icon: <Smartphone className="w-6 h-6 text-[var(--accent)]" /> },
                 { name: "Android Dev", level: 75, icon: <Smartphone className="w-6 h-6 text-[#3DDC84]" /> },
-                { name: "Unity", level: 70, icon: <SiUnity className="w-6 h-6" /> },
+                { name: "Unity", level: 70, icon: <Settings className="w-6 h-6" /> },
                 { name: "Python", level: 85, icon: <SiPython className="w-6 h-6 text-[#3776AB]" /> }
             ]
         },
@@ -78,9 +73,9 @@ export default function TechStack() {
             technologies: [
                 { name: "Node.js", level: 90, icon: <SiNodedotjs className="w-6 h-6 text-[#339933]" /> },
                 { name: "Django", level: 80, icon: <SiDjango className="w-6 h-6 text-[#092E20]" /> },
-                { name: "Spring Boot", level: 75, icon: <SiSpring className="w-6 h-6 text-[#6DB33F]" /> },
-                { name: "Flask", level: 80, icon: <SiFlask className="w-6 h-6" /> },
-                { name: "FastAPI", level: 85, icon: <SiFastapi className="w-6 h-6 text-[#009688]" /> },
+                { name: "Spring Boot", level: 75, icon: <Coffee className="w-6 h-6 text-[#6DB33F]" /> },
+                { name: "Flask", level: 80, icon: <Coffee className="w-6 h-6" /> },
+                { name: "FastAPI", level: 85, icon: <Zap className="w-6 h-6 text-[#009688]" /> },
                 { name: "REST APIs", level: 90, icon: <Code className="w-6 h-6 text-[var(--accent)]" /> }
             ]
         },
@@ -91,7 +86,7 @@ export default function TechStack() {
             borderColor: "border-teal-500/30",
             technologies: [
                 { name: "PostgreSQL", level: 85, icon: <SiPostgresql className="w-6 h-6 text-[#336791]" /> },
-                { name: "MySQL", level: 80, icon: <SiMysql className="w-6 h-6 text-[#4479A1]" /> },
+                { name: "MySQL", level: 80, icon: <Database className="w-6 h-6 text-[#4479A1]" /> },
                 { name: "MongoDB", level: 85, icon: <SiMongodb className="w-6 h-6 text-[#47A248]" /> }
             ]
         },
@@ -104,7 +99,7 @@ export default function TechStack() {
                 { name: "Git/GitHub", level: 95, icon: <SiGithub className="w-6 h-6" /> },
                 { name: "Docker", level: 80, icon: <SiDocker className="w-6 h-6 text-[#2496ED]" /> },
                 { name: "CI/CD", level: 75, icon: <Zap className="w-6 h-6 text-[var(--accent)]" /> },
-                { name: "Google Cloud", level: 70, icon: <SiGooglecloud className="w-6 h-6 text-[#4285F4]" /> },
+                { name: "Google Cloud", level: 70, icon: <Globe className="w-6 h-6 text-[#4285F4]" /> },
                 { name: "Vercel", level: 90, icon: <SiVercel className="w-6 h-6" /> },
                 { name: "Machine Learning", level: 75, icon: <Coffee className="w-6 h-6 text-[var(--accent)]" /> }
             ]
@@ -197,18 +192,17 @@ export default function TechStack() {
             <motion.div
                 key={activeCategory}
                 className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
             >
                 {techCategories[activeCategory as keyof typeof techCategories].technologies.map((tech, index) => (
                     <motion.div
                         key={tech.name}
                         className="glass rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, delay: index * 0.1 }}
-                        whileHover={{ y: -4 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.2, delay: index * 0.05 }}
                         data-cursor="hover"
                     >
                         <div className="flex items-center justify-between mb-4">
@@ -225,7 +219,7 @@ export default function TechStack() {
                                 className="h-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent)]/60 rounded-full"
                                 initial={{ width: 0 }}
                                 animate={{ width: `${tech.level}%` }}
-                                transition={{ duration: 1, delay: index * 0.1 + 0.3, ease: "easeOut" }}
+                                transition={{ duration: 0.5, delay: index * 0.05 + 0.1, ease: "easeOut" }}
                             />
                         </div>
                     </motion.div>
@@ -235,10 +229,10 @@ export default function TechStack() {
             {/* Fun Stats */}
             <motion.div
                 className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.3 }}
             >
                 <div className="text-center glass rounded-2xl p-6">
                     <motion.div

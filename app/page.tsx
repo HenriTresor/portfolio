@@ -8,7 +8,7 @@ import ParallaxLayers from "./components/ParallaxLayers";
 import CyclingTypewriter from "./components/CyclingTypewriter";
 import AboutMe from "./components/AboutMe";
 import Services from "./components/Services";
-import Projects from "./components/Projects";
+import ProjectsOptimized from "./components/ProjectsOptimized";
 import TechStack from "./components/TechStack";
 import FAQ from "./components/FAQ";
 import { SiReact, SiNextdotjs, SiNodedotjs, SiTypescript, SiPython } from "react-icons/si";
@@ -286,7 +286,7 @@ export default function Home() {
       </Section>
 
       <Section id="projects">
-        <Projects />
+        <ProjectsOptimized />
       </Section>
 
       <Section id="skills" bg="panel">

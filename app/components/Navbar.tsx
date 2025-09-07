@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, User, Zap, Rocket, Settings, MessageCircle, FileDown, Github, HelpCircle } from "lucide-react";
+import { Home, User, Zap, Rocket, Settings, MessageCircle, FileDown, Github, HelpCircle, Menu } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import Link from "next/link";
 import { useNavbar } from './ClientLayout';
@@ -11,7 +11,7 @@ export default function Navbar() {
     const { t } = useTranslation();
     const { isNavbarOpen, setIsNavbarOpen } = useNavbar();
     const [open, setOpen] = useState(false);
-    
+
     // Sync local state with context
     useEffect(() => {
         setIsNavbarOpen(open);
@@ -40,13 +40,15 @@ export default function Navbar() {
                     <Link href="/#hero" className="pointer-events-auto select-none">
                         <span className="text-2xl font-semibold tracking-tight">HT</span>
                     </Link>
-                    <button
+                    <motion.button
                         aria-label="Open menu"
-                        className="pointer-events-auto h-10 w-10 grid place-items-center group text-white"
+                        className="pointer-events-auto glass rounded-full p-3 hover:bg-white/10 transition-all group"
                         onClick={() => setOpen(true)}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                     >
-                        <span className="relative block h-[2px] w-6 bg-current after:absolute after:content-[''] after:h-[2px] after:w-6 after:bg-current after:top-2 transition-transform group-hover:scale-x-110" />
-                    </button>
+                        <Menu className="w-5 h-5" />
+                    </motion.button>
                 </div>
             </header>
 
@@ -155,9 +157,9 @@ export default function Navbar() {
                                     transition={{ duration: 0.6, delay: 0.4 }}
                                     className="mb-16"
                                 >
-                                    <motion.ul
-                                        initial="hidden"
-                                        animate="show"
+                            <motion.ul
+                                initial="hidden"
+                                animate="show"
                                         exit="hidden"
                                         variants={{
                                             hidden: {
@@ -193,17 +195,17 @@ export default function Navbar() {
                                                 }}
                                                 transition={{ duration: 0.5, ease: [0.23, 1, 0.320, 1] }}
                                             >
-                                                <motion.a
+                                        <motion.a
                                                     href={link.href}
-                                                    onClick={() => setOpen(false)}
+                                            onClick={() => setOpen(false)}
                                                     className="group block p-6 rounded-3xl  hover:bg-white/10 transition-all duration-300"
                                                     whileHover={{
                                                         x: 12,
                                                         scale: 1.02,
                                                         backgroundColor: "rgba(154, 199, 255, 0.08)"
                                                     }}
-                                                    whileTap={{ scale: 0.98 }}
-                                                >
+                                            whileTap={{ scale: 0.98 }}
+                                        >
                                                     <div className="flex items-center gap-6">
                                                         <motion.div
                                                             className="flex items-center justify-center"
@@ -235,9 +237,9 @@ export default function Navbar() {
                                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                         </motion.svg>
                                                     </div>
-                                                </motion.a>
-                                            </motion.li>
-                                        ))}
+                                        </motion.a>
+                                    </motion.li>
+                                ))}
                                     </motion.ul>
                                 </motion.div>
 
@@ -328,7 +330,7 @@ export default function Navbar() {
                                                     →
                                                 </motion.span>
                                             </motion.a>
-                                        </div>
+                                    </div>
                                     </motion.div>
                                 </motion.div>
 
@@ -342,7 +344,7 @@ export default function Navbar() {
                                 >
                                     <p className="text-sm opacity-60">© 2024 Henri Tresor. {t('footer.copyright')}</p>
                                 </motion.div>
-                            </div>
+                        </div>
                         </motion.div>
                     </motion.div>
                 )}
