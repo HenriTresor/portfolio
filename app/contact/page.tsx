@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 function Marquee() {
-    const text = " Let&apos;s Build • Something Amazing • Together • Your Vision • My Code • ";
+    const text = " Let's Build • Something Amazing • Together • Your Vision • My Code • ";
     return (
         <div className="relative overflow-hidden border-b border-white/10">
             <div className="whitespace-nowrap text-[18vw] leading-none font-extrabold opacity-10 animate-[marquee_30s_linear_infinite]">
