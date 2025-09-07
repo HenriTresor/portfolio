@@ -103,10 +103,10 @@ export default function TextScrambler() {
     useEffect(() => {
         // Use passive listeners for better performance
         document.addEventListener("mouseenter", throttledHandler, { passive: true, capture: true });
-        
+
         // Capture the current ref value
         const currentAnimations = activeAnimations.current;
-        
+
         return () => {
             document.removeEventListener("mouseenter", throttledHandler, true);
             // Cancel any remaining animations

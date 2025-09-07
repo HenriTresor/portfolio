@@ -7,7 +7,7 @@ export async function GET() {
     // Resolve the file in the project root
     const filePath = join(process.cwd(), "Henri_Tresor_Updated_CV.pdf");
     const data = await readFile(filePath);
-    
+
     return new NextResponse(data as unknown as BodyInit, {
       headers: {
         "Content-Type": "application/pdf",

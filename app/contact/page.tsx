@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
 
 function Marquee() {
@@ -41,17 +39,6 @@ export default function ContactPage() {
 
     return (
         <div className="min-h-screen">
-            {/* Back to Home */}
-            <div className="fixed top-6 left-0 z-50">
-                <Link
-                    href="/"
-                    className="flex items-center gap-2 px-4 py-2 glass rounded-full hover:bg-white/10 transition-all"
-                >
-                    <ArrowLeft className="w-4 h-4" />
-                    <span className="text-sm font-medium">Back to Home</span>
-                </Link>
-            </div>
-
             <Marquee />
             <section className="max-w-6xl mx-auto px-6 py-16">
                 <div className="grid sm:grid-cols-2 gap-10 items-start">

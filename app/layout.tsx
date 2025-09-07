@@ -3,12 +3,11 @@ import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "./components/CustomCursor";
 import NavDots from "./components/NavDots";
-import Navbar from "./components/Navbar";
 import Background from "./components/Background";
 import TextScrambler from "./components/TextScrambler";
 import Footer from "./components/Footer";
 import I18nProvider from "./components/I18nProvider";
-import LanguageSwitcher from "./components/LanguageSwitcher";
+import ClientLayout from "./components/ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -72,12 +71,9 @@ export default function RootLayout({
           <CustomCursor />
           <TextScrambler />
           <NavDots />
-          <Navbar />
-          {/* Language Switcher */}
-          <div className="fixed top-4 right-20 z-40">
-            <LanguageSwitcher />
-          </div>
-          {children}
+          <ClientLayout>
+            {children}
+          </ClientLayout>
           <Footer />
         </I18nProvider>
       </body>

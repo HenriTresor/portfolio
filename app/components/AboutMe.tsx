@@ -74,11 +74,11 @@ export default function AboutMe() {
                 <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                     {/* Left Side - Profile/Visual */}
                     <motion.div
-                        className="lg:col-span-5 space-y-8"
+                        className="lg:col-span-5 space-y-8 flex flex-col items-center lg:items-start"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         {/* Profile Card */}
                         <div className="glass rounded-3xl p-8 text-center space-y-6">
@@ -154,18 +154,18 @@ export default function AboutMe() {
 
                     {/* Right Side - Typing Text */}
                     <motion.div
-                        className="lg:col-span-7 space-y-8"
+                        className="lg:col-span-7 space-y-8 text-center lg:text-left"
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                     >
                         <div className="space-y-6">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.4 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ duration: 0.4, delay: 0.2 }}
                                 className="inline-block"
                             >
                                 <span className="text-sm font-medium text-[var(--accent)] bg-[var(--accent)]/10 px-4 py-2 rounded-full">
@@ -177,8 +177,8 @@ export default function AboutMe() {
                                 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-snug font-semibold tracking-tight"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                                transition={{ duration: 0.6, delay: 0.6 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.4, delay: 0.3 }}
                                 onViewportEnter={() => setHasStarted(true)}
                             >
                                 <SimpleTypingAnimation
@@ -190,8 +190,8 @@ export default function AboutMe() {
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 1.2 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ duration: 0.4, delay: 0.5 }}
                                 className="grid sm:grid-cols-2 gap-6 mt-8"
                             >
                                 <div className="glass rounded-2xl p-6 space-y-3">
@@ -214,9 +214,9 @@ export default function AboutMe() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 1.4 }}
-                            className="flex flex-wrap gap-4 pt-4"
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.4, delay: 0.6 }}
+                            className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4"
                         >
                             <a
                                 href="/contact"
