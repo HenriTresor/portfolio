@@ -148,8 +148,8 @@ export default function ContactPage() {
                                             type="button"
                                             onClick={() => toggleProjectType(type.id)}
                                             className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${selectedTypes.includes(type.id)
-                                                    ? 'bg-[var(--accent)]/20 border-[var(--accent)]/50 text-[var(--accent)]'
-                                                    : 'glass border-white/20 hover:bg-white/10'
+                                                ? 'bg-[var(--accent)]/20 border-[var(--accent)]/50 text-[var(--accent)]'
+                                                : 'glass border-white/20 hover:bg-white/10'
                                                 }`}
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
