@@ -93,7 +93,7 @@ export default function FAQ() {
                     >
                         <motion.button
                             onClick={() => toggleFAQ(index)}
-                            className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-all duration-300"
+                            className="w-full p-6 text-left flex items-center justify-between nav-btn transition-all duration-300 text-theme"
                             whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
                             whileTap={{ scale: 0.98 }}
                         >
@@ -108,7 +108,7 @@ export default function FAQ() {
                                 >
                                     {faqIcons[index]}
                                 </motion.div>
-                                <h3 className="text-lg sm:text-xl font-semibold">
+                                <h3 className="text-lg sm:text-xl font-semibold text-theme">
                                     {faq.question}
                                 </h3>
                             </div>
@@ -173,7 +173,7 @@ export default function FAQ() {
                         </a>
                         <a
                             href="mailto:shimwamanahenritresor@gmail.com"
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full btn-theme transition-all"
                             data-scramble
                         >
                             Send email

@@ -1,8 +1,9 @@
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap'); */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -17,6 +18,18 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+*{
+   font-family: "Syne", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Light mode variables */
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 body {
@@ -42,6 +55,11 @@ html, body {
   --accent: #9ac7ff;
 }
 
+/* Light mode accent color */
+.light {
+  --accent: #7c3aed; /* Violet-600 for better contrast in light mode */
+}
+
 /* Dark/light theme */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -59,6 +77,13 @@ html, body {
 .glass {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+}
+
+/* Light mode glass */
+.light .glass {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(14px);
 }
 
@@ -84,6 +109,12 @@ html, body {
   transform: rotate(-6deg);
 }
 
+/* Light mode aurora */
+.light .aurora::before,
+.light .aurora::after {
+  background: conic-gradient(from 180deg at 50% 50%, rgba(59,130,246,0.2), transparent, rgba(59,130,246,0.1), transparent);
+}
+
 @keyframes caretBlink { 0%, 60% { opacity: 1 } 61%, 100% { opacity: 0 } }
 .animate-caret { animation: caretBlink 1s step-end infinite; }
 
@@ -100,3 +131,94 @@ html {
 /* Links */
 a { color: var(--foreground); text-decoration: none; }
 a.underline { text-decoration: underline; text-underline-offset: 2px; }
+
+/* Theme-aware navbar */
+.navbar-bg {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.light .navbar-bg {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Theme-aware switcher */
+.switcher-bg {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.light .switcher-bg {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Theme-aware hover states */
+.hover-light:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.light .hover-light:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Theme-aware buttons */
+.btn-theme {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--foreground);
+}
+
+.light .btn-theme {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: var(--foreground);
+}
+
+.btn-theme:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.light .btn-theme:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation buttons */
+.nav-btn {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--foreground);
+}
+
+.light .nav-btn {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: var(--foreground);
+}
+
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.light .nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Theme-aware text colors */
+.text-theme {
+  color: var(--foreground);
+}
+
+.light .text-theme {
+  color: var(--foreground);
+}
+
+/* Theme-aware accent colors */
+.accent-theme {
+  color: var(--accent);
+}
+
+.light .accent-theme {
+  color: #7c3aed; /* Violet-600 for light mode */
+}

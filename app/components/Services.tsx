@@ -87,7 +87,7 @@ export default function Services() {
                 <div className="flex justify-between items-center mb-6">
                     <button
                         onClick={goToPrev}
-                        className="p-3 rounded-full glass hover:bg-white/10 transition-all"
+                        className="p-3 rounded-full nav-btn transition-all text-theme"
                         data-cursor="hover"
                     >
                         ←
@@ -106,7 +106,7 @@ export default function Services() {
 
                     <button
                         onClick={goToNext}
-                        className="p-3 rounded-full glass hover:bg-white/10 transition-all"
+                        className="p-3 rounded-full nav-btn transition-all text-theme"
                         data-cursor="hover"
                     >
                         →
@@ -196,14 +196,14 @@ export default function Services() {
                 <div className="flex flex-wrap justify-center gap-4">
                     <a
                         href="/contact"
-                        className="px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition font-medium"
+                        className="px-6 py-3 rounded-full btn-theme transition font-medium"
                         data-scramble
                     >
                         {t('services.cta.startProject')}
                     </a>
                     <a
                         href="/cv"
-                        className="px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition opacity-80 hover:opacity-100"
+                        className="px-6 py-3 rounded-full btn-theme transition opacity-80 hover:opacity-100"
                         data-scramble
                     >
                         {t('services.cta.viewCredentials')}
