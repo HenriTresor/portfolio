@@ -2,7 +2,8 @@
 
 import { useEffect, useCallback, useRef } from "react";
 
-const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const SPECIAL_CHARS = "!@#$%^&*()_+-=[]{}|;':\",./<>?";
 
 // Optimized scramble function with requestAnimationFrame
 function scramble(el: HTMLElement) {
@@ -12,36 +13,104 @@ function scramble(el: HTMLElement) {
     const duration = 500; // Reduced duration for snappier feel
     let animationId: number;
 
+    // Store original styles to prevent layout shifts
+    const originalWhiteSpace = el.style.whiteSpace;
+    const originalOverflow = el.style.overflow;
+    const originalTextOverflow = el.style.textOverflow;
+    const originalMinWidth = el.style.minWidth;
+    const originalWidth = el.style.width;
+    const originalHeight = el.style.height;
+    const originalMinHeight = el.style.minHeight;
+    const originalFlexBasis = el.style.flexBasis;
+    const originalBoxSizing = el.style.boxSizing;
+
+    // For buttons and links, completely lock dimensions to prevent ANY layout shifts
+    const isInteractive = el.tagName === 'BUTTON' || el.tagName === 'A' || el.closest('button, a');
+
+    if (isInteractive) {
+        // Get current dimensions and lock them completely
+        const rect = el.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0) {
+            el.style.boxSizing = 'border-box';
+            el.style.width = `${rect.width}px`;
+            el.style.height = `${rect.height}px`;
+            el.style.minWidth = `${rect.width}px`;
+            el.style.minHeight = `${rect.height}px`;
+            el.style.whiteSpace = 'nowrap';
+            el.style.overflow = 'hidden';
+            el.style.textOverflow = 'ellipsis';
+        }
+    } else if (original.length > 0) {
+        // For regular text, use em-based calculation
+        el.style.minWidth = `${original.length * 0.6}em`;
+    }
+
     const startTime = performance.now();
 
     const animate = (currentTime: number) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
 
-        // Easing function for smoother animation
-        const easedProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease-out
+        // More realistic easing function with slight delay at start
+        const easedProgress = progress < 0.1 ? 0 : 1 - Math.pow(1 - (progress - 0.1) / 0.9, 2.5);
 
         const reveal = Math.floor(original.length * easedProgress);
         const head = original.slice(0, reveal);
 
-        // Generate random tail with decreasing intensity
+        // Generate random tail with decreasing intensity and realistic character selection
         const tailLength = original.length - reveal;
         const intensity = Math.max(0.1, 1 - progress); // Fade out scrambling
         const tail = Array.from({ length: tailLength }, (_, i) => {
+            const originalIndex = reveal + i;
+            // Ensure we don't go beyond original text length
+            if (originalIndex >= original.length) {
+                return "";
+            }
+
+            const originalChar = original[originalIndex] || "";
+
             // Less scrambling towards the end
             if (Math.random() > intensity) {
-                return original[reveal + i] || "";
+                return originalChar;
             }
-            return CHARS[Math.floor(Math.random() * CHARS.length)];
+
+            // More realistic character selection based on original character type
+            let charSet = CHARS;
+            if (/[0-9]/.test(originalChar)) {
+                charSet = "0123456789";
+            } else if (/[A-Z]/.test(originalChar)) {
+                charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            } else if (/[a-z]/.test(originalChar)) {
+                charSet = "abcdefghijklmnopqrstuvwxyz";
+            } else if (/[!@#$%^&*()_+\-=\[\]{}|;':",./<>?]/.test(originalChar)) {
+                charSet = SPECIAL_CHARS;
+            } else if (originalChar === " ") {
+                // Keep spaces as spaces for readability
+                return " ";
+            }
+
+            return charSet[Math.floor(Math.random() * charSet.length)];
         }).join("");
 
-        el.textContent = head + tail;
+        // Ensure total length never exceeds original
+        const scrambledText = head + tail;
+        el.textContent = scrambledText.length <= original.length ? scrambledText : original;
 
         if (progress < 1) {
             animationId = requestAnimationFrame(animate);
         } else {
             el.textContent = original;
             el.classList.remove("scrambling");
+            // Restore original styles
+            el.style.whiteSpace = originalWhiteSpace;
+            el.style.overflow = originalOverflow;
+            el.style.textOverflow = originalTextOverflow;
+            el.style.minWidth = originalMinWidth;
+            el.style.width = originalWidth;
+            el.style.height = originalHeight;
+            el.style.minHeight = originalMinHeight;
+            el.style.flexBasis = originalFlexBasis;
+            el.style.boxSizing = originalBoxSizing;
         }
     };
 
@@ -54,6 +123,16 @@ function scramble(el: HTMLElement) {
         if (animationId) {
             cancelAnimationFrame(animationId);
         }
+        // Restore original styles
+        el.style.whiteSpace = originalWhiteSpace;
+        el.style.overflow = originalOverflow;
+        el.style.textOverflow = originalTextOverflow;
+        el.style.minWidth = originalMinWidth;
+        el.style.width = originalWidth;
+        el.style.height = originalHeight;
+        el.style.minHeight = originalMinHeight;
+        el.style.flexBasis = originalFlexBasis;
+        el.style.boxSizing = originalBoxSizing;
     };
 }
 
@@ -67,6 +146,8 @@ export default function TextScrambler() {
         // Opt-in only: require explicit data-scramble
         const el = target.closest("[data-scramble]") as HTMLElement | null;
         if (!el) return;
+
+        // Allow buttons and links, but we'll prevent layout shifts in the scramble function
 
         // Prevent multiple simultaneous animations on same element
         if (activeAnimations.current.has(el)) return;

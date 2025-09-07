@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import Navbar from './Navbar';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeSwitcher from './ThemeSwitcher';
 
 interface NavbarContextType {
   isNavbarOpen: boolean;
@@ -25,10 +26,13 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
   return (
     <NavbarContext.Provider value={{ isNavbarOpen, setIsNavbarOpen }}>
       <Navbar />
-      {/* Language Switcher - Positioned to avoid navbar button overlap */}
-      <div className={`fixed top-20 right-4 sm:top-4 sm:right-20 z-[9999] transition-opacity duration-300 ${isNavbarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
+      {/* Desktop switchers - aligned with hamburger */}
+      <div className={`hidden sm:flex fixed top-6 right-20 z-[9999] transition-opacity duration-300 ${isNavbarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}>
-        <LanguageSwitcher />
+        <div className="flex items-center align-center gap-2">
+          <ThemeSwitcher />
+          <LanguageSwitcher />
+        </div>
       </div>
       {children}
     </NavbarContext.Provider>

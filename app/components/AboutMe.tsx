@@ -98,8 +98,8 @@ export default function AboutMe() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.4 }}
                             >
-                                <h3 className="text-2xl font-semibold text-[var(--accent)] mb-2">Henri Tresor</h3>
-                                <p className="text-base opacity-80">Full-Stack & Mobile Developer</p>
+                                <h3 className="text-2xl font-semibold accent-theme mb-2">Henri Tresor</h3>
+                                <p className="text-base opacity-80 text-theme">Full-Stack & Mobile Developer</p>
                             </motion.div>
 
                             <motion.div
@@ -110,18 +110,18 @@ export default function AboutMe() {
                                 className="flex justify-center gap-4"
                             >
                                 <div className="text-center">
-                                    <div className="text-2xl font-bold text-[var(--accent)]">3+</div>
-                                    <div className="text-xs opacity-70">Years Experience</div>
+                                    <div className="text-2xl font-bold accent-theme">3+</div>
+                                    <div className="text-xs opacity-70 text-theme">Years Experience</div>
                                 </div>
-                                <div className="w-px bg-white/20"></div>
+                                <div className="w-px bg-white/20 dark:bg-white/20 light:bg-black/20"></div>
                                 <div className="text-center">
-                                    <div className="text-2xl font-bold text-[var(--accent)]">50+</div>
-                                    <div className="text-xs opacity-70">Projects Completed</div>
+                                    <div className="text-2xl font-bold accent-theme">50+</div>
+                                    <div className="text-xs opacity-70 text-theme">Projects Completed</div>
                                 </div>
-                                <div className="w-px bg-white/20"></div>
+                                <div className="w-px bg-white/20 dark:bg-white/20 light:bg-black/20"></div>
                                 <div className="text-center">
-                                    <div className="text-2xl font-bold text-[var(--accent)]">100%</div>
-                                    <div className="text-xs opacity-70">Client Satisfaction</div>
+                                    <div className="text-2xl font-bold accent-theme">100%</div>
+                                    <div className="text-xs opacity-70 text-theme">Client Satisfaction</div>
                                 </div>
                             </motion.div>
                         </div>
@@ -134,7 +134,7 @@ export default function AboutMe() {
                             transition={{ duration: 0.6, delay: 0.8 }}
                             className="space-y-4"
                         >
-                            <h4 className="text-lg font-semibold opacity-90">Core Technologies</h4>
+                            <h4 className="text-lg font-semibold opacity-90 text-theme">Core Technologies</h4>
                             <div className="flex flex-wrap gap-3">
                                 {["React", "React Native", "Next.js", "TypeScript", "Node.js", "Flutter"].map((tech, index) => (
                                     <motion.span
@@ -143,7 +143,7 @@ export default function AboutMe() {
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.3, delay: 1 + index * 0.1 }}
-                                        className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm"
+                                        className="px-3 py-1 rounded-full bg-white/10 dark:bg-white/10 light:bg-black/10 border border-white/20 dark:border-white/20 light:border-black/20 text-sm text-theme"
                                     >
                                         {tech}
                                     </motion.span>
@@ -168,13 +168,13 @@ export default function AboutMe() {
                                 transition={{ duration: 0.4, delay: 0.2 }}
                                 className="inline-block"
                             >
-                                <span className="text-sm font-medium text-[var(--accent)] bg-[var(--accent)]/10 px-4 py-2 rounded-full">
+                                <span className="text-sm font-medium accent-theme bg-[var(--accent)]/10 px-4 py-2 rounded-full">
                                     {t('about.badge')}
                                 </span>
                             </motion.div>
 
                             <motion.h2
-                                className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-snug font-semibold tracking-tight"
+                                className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-snug font-semibold tracking-tight text-theme"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.2 }}
@@ -196,15 +196,15 @@ export default function AboutMe() {
                             >
                                 <div className="glass rounded-2xl p-6 space-y-3">
                                     <div className="text-2xl">📱</div>
-                                    <h4 className="font-semibold">{t('about.crossPlatform.title')}</h4>
-                                    <p className="text-sm opacity-80 leading-relaxed">
+                                    <h4 className="font-semibold text-theme">{t('about.crossPlatform.title')}</h4>
+                                    <p className="text-sm opacity-80 leading-relaxed text-theme">
                                         {t('about.crossPlatform.description')}
                                     </p>
                                 </div>
                                 <div className="glass rounded-2xl p-6 space-y-3">
                                     <div className="text-2xl">🚀</div>
-                                    <h4 className="font-semibold">{t('about.fullStack.title')}</h4>
-                                    <p className="text-sm opacity-80 leading-relaxed">
+                                    <h4 className="font-semibold text-theme">{t('about.fullStack.title')}</h4>
+                                    <p className="text-sm opacity-80 leading-relaxed text-theme">
                                         {t('about.fullStack.description')}
                                     </p>
                                 </div>
@@ -220,7 +220,7 @@ export default function AboutMe() {
                         >
                             <a
                                 href="/contact"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-all font-medium"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-all font-medium accent-theme"
                                 data-scramble
                             >
                                 <span>{t('about.cta.workTogether')}</span>
@@ -228,7 +228,7 @@ export default function AboutMe() {
                             </a>
                             <a
                                 href="/cv"
-                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full btn-theme transition-all text-theme"
                                 data-scramble
                             >
                                 <span>{t('about.cta.viewResume')}</span>
