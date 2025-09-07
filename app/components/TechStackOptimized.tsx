@@ -13,22 +13,46 @@ export default function TechStackOptimized() {
         {
             name: "Frontend",
             icon: "🎨",
-            techs: ["React", "Next.js", "TypeScript", "Tailwind CSS", "React Native"]
+            techs: [
+                { name: "React", level: 95 },
+                { name: "Next.js", level: 90 },
+                { name: "TypeScript", level: 85 },
+                { name: "Tailwind CSS", level: 90 },
+                { name: "React Native", level: 90 }
+            ]
         },
         {
             name: "Backend",
             icon: "⚙️",
-            techs: ["Node.js", "Python", "Django", "PostgreSQL", "MongoDB"]
+            techs: [
+                { name: "Node.js", level: 90 },
+                { name: "Python", level: 85 },
+                { name: "Django", level: 80 },
+                { name: "PostgreSQL", level: 85 },
+                { name: "MongoDB", level: 85 }
+            ]
         },
         {
             name: "Mobile",
             icon: "📱",
-            techs: ["React Native", "Flutter", "Expo", "iOS", "Android"]
+            techs: [
+                { name: "React Native", level: 90 },
+                { name: "Flutter", level: 75 },
+                { name: "Expo", level: 85 },
+                { name: "iOS Dev", level: 70 },
+                { name: "Android Dev", level: 75 }
+            ]
         },
         {
             name: "Tools",
             icon: "🛠️",
-            techs: ["Git/GitHub", "Docker", "Vercel", "Google Cloud", "AI APIs"]
+            techs: [
+                { name: "Git/GitHub", level: 95 },
+                { name: "Docker", level: 80 },
+                { name: "Vercel", level: 90 },
+                { name: "Google Cloud", level: 70 },
+                { name: "AI APIs", level: 80 }
+            ]
         }
     ];
 
@@ -97,19 +121,32 @@ export default function TechStackOptimized() {
                             {categories[activeCategory].name}
                         </h3>
 
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                            {categories[activeCategory].techs.map((tech, index) => (
-                                <motion.div
-                                    key={tech}
-                                    className="glass rounded-xl p-4 hover:bg-white/10 transition-all"
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.2, delay: index * 0.05 }}
-                                >
-                                    <div className="text-sm font-medium">{tech}</div>
-                                </motion.div>
-                            ))}
-                        </div>
+                         <div className="grid sm:grid-cols-2 gap-4">
+                             {categories[activeCategory].techs.map((tech, index) => (
+                                 <motion.div
+                                     key={tech.name}
+                                     className="glass rounded-xl p-4 hover:bg-white/10 transition-all"
+                                     initial={{ opacity: 0 }}
+                                     animate={{ opacity: 1 }}
+                                     transition={{ duration: 0.2, delay: index * 0.05 }}
+                                 >
+                                     <div className="flex items-center justify-between mb-3">
+                                         <div className="text-sm font-medium">{tech.name}</div>
+                                         <span className="text-xs text-[var(--accent)] font-medium">{tech.level}%</span>
+                                     </div>
+                                     
+                                     {/* Optimized Progress Bar */}
+                                     <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                                         <motion.div
+                                             className="h-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent)]/60 rounded-full"
+                                             initial={{ width: 0 }}
+                                             animate={{ width: `${tech.level}%` }}
+                                             transition={{ duration: 0.4, delay: index * 0.05 + 0.1, ease: "easeOut" }}
+                                         />
+                                     </div>
+                                 </motion.div>
+                             ))}
+                         </div>
                     </div>
                 </div>
             </motion.div>
