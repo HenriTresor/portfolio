@@ -2,11 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useTheme } from "./ThemeProvider";
 
 export default function CustomCursor() {
+  const { resolvedTheme } = useTheme();
   const isTouch = typeof window !== "undefined" && "ontouchstart" in window;
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  const x = useMotionValue(100);
+  const y = useMotionValue(100);
   const xs = useSpring(x, { stiffness: 350, damping: 25, mass: 0.5 });
   const ys = useSpring(y, { stiffness: 350, damping: 25, mass: 0.5 });
   const [hovering, setHovering] = useState(false);
@@ -53,22 +55,21 @@ export default function CustomCursor() {
         y: '-50%'
       }}
     >
-      {/* Outer glow ring */}
-      <div className={`absolute inset-0 w-10 h-10 rounded-full transition-all duration-200 ${hovering
-          ? 'bg-gradient-to-r from-[var(--accent)]/20 to-blue-400/20 scale-100 opacity-100'
-          : 'bg-white/5 scale-75 opacity-60'
-        }`} />
 
       {/* Main cursor ring */}
-      <div className={`w-8 h-8 rounded-full border-2 backdrop-blur-sm transition-all duration-200 ${hovering
-          ? 'border-[var(--accent)] bg-[var(--accent)]/10 scale-125 shadow-lg shadow-[var(--accent)]/25'
-          : 'border-white/60 bg-white/5 scale-100'
+      <div className={`w-6 h-6 rounded-full border-2 transition-all duration-200 ${hovering
+        ? 'border-[var(--accent)] bg-[var(--accent)]/15 scale-75'
+        : resolvedTheme === 'light'
+          ? 'border-black bg-black/20 scale-100'
+          : 'border-white bg-white/15 scale-100'
         }`} />
 
       {/* Center dot */}
-      <div className={`absolute top-1/2 left-1/2 w-2 h-2 rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-150 ${hovering
-          ? 'bg-[var(--accent)] scale-75'
-          : 'bg-white/80 scale-100'
+      <div className={`absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-150 ${hovering
+        ? 'bg-[var(--accent)] scale-50'
+        : resolvedTheme === 'light'
+          ? 'bg-black scale-100'
+          : 'bg-white scale-100'
         }`} />
     </motion.div>
   );

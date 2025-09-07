@@ -36,18 +36,18 @@ export default function Navbar() {
     return (
         <>
             <header className="fixed top-0 inset-x-0 z-50 pointer-events-none">
-                <div className="px-5 py-4 sm:py-5 flex items-center justify-between bg-black/20 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none border-b border-white/10 sm:border-none">
+                <div className="px-5 py-4 sm:py-5 flex items-center justify-between bg-transparent backdrop-blur-none border-none">
                     <Link href="/#hero" className="pointer-events-auto select-none">
-                        <span className="text-2xl font-semibold tracking-tight">HT</span>
+                        <span className="text-2xl font-semibold tracking-tight text-theme">HT</span>
                     </Link>
                     <motion.button
                         aria-label="Open menu"
-                        className="pointer-events-auto glass rounded-full p-3 hover:bg-white/10 transition-all group"
+                        className="pointer-events-auto glass rounded-full p-3 hover-light transition-all group"
                         onClick={() => setOpen(true)}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Menu className="w-5 h-5" />
+                        <Menu className="w-5 h-5 text-theme" />
                     </motion.button>
                 </div>
             </header>
@@ -63,7 +63,7 @@ export default function Navbar() {
                             ease: [0.23, 1, 0.320, 1],
                             opacity: { duration: 0.3 }
                         }}
-                        className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl overflow-y-auto"
+                        className="fixed inset-0 z-50 bg-[var(--background)] overflow-y-auto"
                     >
                         {/* Animated Background */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -107,7 +107,7 @@ export default function Navbar() {
 
                         {/* Header */}
                         <motion.div
-                            className="sticky top-0 bg-black/60 backdrop-blur-md border-b border-white/10 px-8 py-6 flex items-center justify-between z-10"
+                            className="sticky top-0 bg-[var(--background)] backdrop-blur-md border-b border-white/10 dark:border-white/10 light:border-black/10 px-8 py-6 flex items-center justify-between z-10"
                             initial={{ y: -100, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             exit={{ y: -100, opacity: 0 }}
@@ -122,14 +122,14 @@ export default function Navbar() {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
-                                    <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-white via-[var(--accent)] to-white bg-clip-text text-transparent">
+                                    <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-[var(--accent)] to-[var(--foreground)] bg-clip-text text-transparent">
                                         Henri Tresor
                                     </span>
                                 </motion.div>
                             </Link>
                             <motion.button
                                 aria-label="Close menu"
-                                className="glass rounded-full p-3 hover:bg-white/10 transition-all group"
+                                className="glass rounded-full p-3 hover-light transition-all group text-theme"
                                 onClick={() => setOpen(false)}
                                 whileHover={{ scale: 1.1, rotate: 180 }}
                                 whileTap={{ scale: 0.9 }}
@@ -198,7 +198,7 @@ export default function Navbar() {
                                                 <motion.a
                                                     href={link.href}
                                                     onClick={() => setOpen(false)}
-                                                    className="group block p-6 rounded-3xl  hover:bg-white/10 transition-all duration-300"
+                                                    className="group block p-6 rounded-3xl hover-light transition-all duration-300"
                                                     whileHover={{
                                                         x: 12,
                                                         scale: 1.02,
@@ -219,10 +219,10 @@ export default function Navbar() {
                                                             {link.icon}
                                                         </motion.div>
                                                         <div className="flex-1">
-                                                            <h3 className="text-2xl sm:text-3xl font-bold group-hover:text-[var(--accent)] transition-colors duration-300">
+                                                            <h3 className="text-2xl sm:text-3xl font-bold group-hover:text-[var(--accent)] transition-colors duration-300 text-theme">
                                                                 {t(`nav.${link.key}.title`)}
                                                             </h3>
-                                                            <p className="text-base opacity-70 mt-1 group-hover:opacity-90 transition-opacity">
+                                                            <p className="text-base opacity-70 mt-1 group-hover:opacity-90 transition-opacity text-theme">
                                                                 {t(`nav.${link.key}.desc`)}
                                                             </p>
                                                         </div>
@@ -259,11 +259,11 @@ export default function Navbar() {
                                         transition={{ duration: 0.5, delay: 1.0 }}
                                         className="space-y-4"
                                     >
-                                        <h3 className="text-xl font-bold text-[var(--accent)] mb-6">{t('footer.quickLinks')}</h3>
+                                        <h3 className="text-xl font-bold accent-theme mb-6">{t('footer.quickLinks')}</h3>
                                         <div className="space-y-3">
                                             <motion.a
                                                 href="/cv"
-                                                className="group flex items-center gap-4 p-4 glass rounded-2xl hover:bg-white/10 transition-all"
+                                                className="group flex items-center gap-4 p-4 glass rounded-2xl hover-light transition-all text-theme"
                                                 whileHover={{ scale: 1.03, x: 8 }}
                                                 whileTap={{ scale: 0.97 }}
                                             >
@@ -280,7 +280,7 @@ export default function Navbar() {
                                                 href="https://github.com/henritresor"
                                                 target="_blank"
                                                 rel="noreferrer"
-                                                className="group flex items-center gap-4 p-4 glass rounded-2xl hover:bg-white/10 transition-all"
+                                                className="group flex items-center gap-4 p-4 glass rounded-2xl hover-light transition-all text-theme"
                                                 whileHover={{ scale: 1.03, x: 8 }}
                                                 whileTap={{ scale: 0.97 }}
                                             >

@@ -27,12 +27,12 @@ export default function LanguageSwitcher() {
         <div className="relative">
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 px-3 py-2 glass rounded-lg hover:bg-white/10 transition-all"
+                className="flex items-center gap-2 px-3 py-2 glass rounded-lg hover-light transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
             >
                 <Globe className="w-4 h-4" />
-                <span className="text-sm font-medium hidden sm:block">{currentLanguage.name}</span>
+                <span className="text-sm font-medium hidden sm:block text-theme">{currentLanguage.name}</span>
                 <span className="text-lg sm:hidden">{currentLanguage.flag}</span>
                 <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
@@ -56,14 +56,14 @@ export default function LanguageSwitcher() {
                                 key={lang.code}
                                 onClick={() => changeLanguage(lang.code)}
                                 className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-all ${lang.code === i18n.language
-                                    ? 'bg-[var(--accent)]/10 text-[var(--accent)]'
-                                    : 'hover:bg-white/10'
+                                    ? 'bg-[var(--accent)]/10 accent-theme'
+                                    : 'hover-light'
                                     }`}
                                 whileHover={{ x: 4 }}
                                 whileTap={{ scale: 0.98 }}
                             >
                                 <span className="text-lg">{lang.flag}</span>
-                                <span className="text-sm font-medium">{lang.name}</span>
+                                <span className="text-sm font-medium text-theme">{lang.name}</span>
                             </motion.button>
                         ))}
                     </motion.div>

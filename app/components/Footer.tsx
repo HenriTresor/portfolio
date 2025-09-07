@@ -45,10 +45,10 @@ export default function Footer() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         <div className="space-y-4">
-                            <h3 className="text-3xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-white to-[var(--accent)] bg-clip-text text-transparent">
+                            <h3 className="text-3xl sm:text-4xl font-bold tracking-tight bg-gradient-to-r from-[var(--accent)] to-[var(--foreground)] bg-clip-text text-transparent">
                                 Henri Tresor
                             </h3>
-                            <p className="text-base opacity-80 leading-relaxed max-w-md">
+                            <p className="text-base opacity-80 leading-relaxed max-w-md text-theme">
                                 {t('footer.description')}
                             </p>
                         </div>
@@ -65,7 +65,7 @@ export default function Footer() {
                                     href={social.href}
                                     target={social.href.startsWith('http') ? '_blank' : undefined}
                                     rel={social.href.startsWith('http') ? 'noreferrer' : undefined}
-                                    className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-all"
+                                    className="w-12 h-12 glass rounded-full flex items-center justify-center hover-light transition-all text-theme"
                                     whileHover={{ scale: 1.1, y: -2 }}
                                     whileTap={{ scale: 0.95 }}
                                     initial={{ opacity: 0, y: 20 }}
@@ -89,7 +89,7 @@ export default function Footer() {
                     >
                         {/* Quick Links */}
                         <div className="space-y-6">
-                            <h4 className="text-lg font-semibold text-[var(--accent)]">{t('footer.quickLinks')}</h4>
+                            <h4 className="text-lg font-semibold accent-theme">{t('footer.quickLinks')}</h4>
                             <ul className="space-y-3">
                                 {[
                                     { key: "about", href: "/#about" },
@@ -108,7 +108,7 @@ export default function Footer() {
                                     >
                                         <a
                                             href={link.href}
-                                            className="text-base opacity-80 hover:opacity-100 hover:text-[var(--accent)] transition-all"
+                                            className="text-base opacity-80 hover:opacity-100 hover:text-[var(--accent)] transition-all text-theme"
                                             data-scramble
                                         >
                                             {t(`nav.${link.key}.title`)}
@@ -120,7 +120,7 @@ export default function Footer() {
 
                         {/* Contact Info */}
                         <div className="space-y-6">
-                            <h4 className="text-lg font-semibold text-[var(--accent)]">{t('footer.getInTouch')}</h4>
+                            <h4 className="text-lg font-semibold accent-theme">{t('footer.getInTouch')}</h4>
                             <div className="space-y-4">
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}
@@ -128,8 +128,8 @@ export default function Footer() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.4, delay: 0.8 }}
                                 >
-                                    <p className="text-sm opacity-70 mb-2">{t('footer.location')}</p>
-                                    <p className="text-base opacity-90">{t('footer.locationValue')}</p>
+                                    <p className="text-sm opacity-70 mb-2 text-theme">{t('footer.location')}</p>
+                                    <p className="text-base opacity-90 text-theme">{t('footer.locationValue')}</p>
                                 </motion.div>
 
                                 <motion.div
@@ -138,8 +138,8 @@ export default function Footer() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.4, delay: 0.9 }}
                                 >
-                                    <p className="text-sm opacity-70 mb-2">{t('footer.availability')}</p>
-                                    <p className="text-base opacity-90">{t('footer.availabilityValue')}</p>
+                                    <p className="text-sm opacity-70 mb-2 text-theme">{t('footer.availability')}</p>
+                                    <p className="text-base opacity-90 text-theme">{t('footer.availabilityValue')}</p>
                                 </motion.div>
 
                                 <motion.div
@@ -150,7 +150,7 @@ export default function Footer() {
                                 >
                                     <a
                                         href="/contact"
-                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-all text-sm font-medium"
+                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-all text-sm font-medium accent-theme"
                                         data-scramble
                                     >
                                         {t('footer.startProject')}
@@ -170,15 +170,15 @@ export default function Footer() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 1.2 }}
                 >
-                    <p className="text-sm opacity-60">
+                    <p className="text-sm opacity-60 text-theme">
                         © {new Date().getFullYear()} Henri Tresor. {t('footer.copyright')}
                     </p>
                     <div className="flex gap-6 text-sm opacity-70">
-                        <a href="/cv" className="hover:opacity-100 transition-opacity flex items-center gap-2" data-scramble>
+                        <a href="/cv" className="hover:opacity-100 transition-opacity flex items-center gap-2 text-theme" data-scramble>
                             <Download className="w-4 h-4" />
                             {t('footer.downloadCV')}
                         </a>
-                        <a href="https://github.com/henritresor" target="_blank" rel="noreferrer" className="hover:opacity-100 transition-opacity flex items-center gap-2" data-scramble>
+                        <a href="https://github.com/henritresor" target="_blank" rel="noreferrer" className="hover:opacity-100 transition-opacity flex items-center gap-2 text-theme" data-scramble>
                             <ExternalLink className="w-4 h-4" />
                             GitHub
                         </a>

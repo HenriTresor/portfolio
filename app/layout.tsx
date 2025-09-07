@@ -8,16 +8,8 @@ import TextScrambler from "./components/TextScrambler";
 import Footer from "./components/Footer";
 import I18nProvider from "./components/I18nProvider";
 import ClientLayout from "./components/ClientLayout";
+import { ThemeProvider } from "./components/ThemeProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const syne = Syne({
   variable: "--font-syne",
@@ -65,17 +57,19 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.svg?v=2" />
         <meta name="theme-color" content="#9ac7ff" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} antialiased`}>
-        <I18nProvider>
-          <Background />
-          <CustomCursor />
-          <TextScrambler />
-          <NavDots />
-          <ClientLayout>
-            {children}
-          </ClientLayout>
-          <Footer />
-        </I18nProvider>
+      <body className={`${syne.variable} antialiased`}>
+        <ThemeProvider>
+          <I18nProvider>
+            <Background />
+            <CustomCursor />
+            <TextScrambler />
+            <NavDots />
+            <ClientLayout>
+              {children}
+            </ClientLayout>
+            <Footer />
+          </I18nProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

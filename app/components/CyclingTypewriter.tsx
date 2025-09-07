@@ -81,7 +81,7 @@ export default function CyclingTypewriter({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <span className="bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-[var(--accent)]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-br from-[var(--accent)] via-[var(--accent)] to-[var(--foreground)]">
                 {currentText}
             </span>
             <motion.span

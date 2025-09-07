@@ -82,7 +82,7 @@ export default function ProjectsOptimized() {
                 <div className="flex justify-center items-center gap-6 mb-6">
                     <button
                         onClick={() => setActiveProject((prev) => (prev - 1 + projects.length) % projects.length)}
-                        className="p-3 glass rounded-full hover:bg-white/10 transition-all"
+                        className="p-3 nav-btn rounded-full transition-all text-theme"
                     >
                         ←
                     </button>
@@ -100,7 +100,7 @@ export default function ProjectsOptimized() {
 
                     <button
                         onClick={() => setActiveProject((prev) => (prev + 1) % projects.length)}
-                        className="p-3 glass rounded-full hover:bg-white/10 transition-all"
+                        className="p-3 nav-btn rounded-full transition-all text-theme"
                     >
                         →
                     </button>
@@ -312,7 +312,7 @@ export default function ProjectsOptimized() {
                         href="https://github.com/henritresor"
                         target="_blank"
                         rel="noreferrer"
-                        className="px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-all"
+                        className="px-6 py-3 rounded-full btn-theme transition-all"
                         data-scramble
                     >
                         {t('projects.viewAll')}

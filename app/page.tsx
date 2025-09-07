@@ -39,7 +39,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center min-h-[80vh] pt-20 sm:pt-0">
+          <div className="relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center min-h-[80vh] pt-24 sm:pt-4">
             {/* Left Side - Main Content */}
             <div className="lg:col-span-7 space-y-8">
               {/* Badge */}
@@ -49,7 +49,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-block"
               >
-                <span className="text-sm font-medium text-[var(--accent)] bg-[var(--accent)]/10 px-4 py-2 rounded-full border border-[var(--accent)]/20">
+                <span className="text-sm font-medium accent-theme bg-[var(--accent)]/10 px-4 py-2 rounded-full border border-[var(--accent)]/20">
                   {t('hero.badge')}
                 </span>
               </motion.div>
@@ -61,8 +61,8 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[0.9]">
-                    {t('hero.greeting')} <span className="text-[var(--accent)]">Henri</span>
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[0.9] text-theme">
+                    {t('hero.greeting')} <span className="accent-theme">Henri</span>
                   </h1>
                 </motion.div>
 
@@ -70,14 +70,14 @@ export default function Home() {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="text-2xl sm:text-3xl lg:text-4xl font-light opacity-90"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-light opacity-90 text-theme"
                 >
                   {t('hero.subtitle')}
                 </motion.div>
 
                 <CyclingTypewriter
                   texts={t('hero.typewriter', { returnObjects: true }) as string[]}
-                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--accent)] min-h-[1.2em]"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold accent-theme min-h-[1.2em]"
                   speedMs={80}
                   pauseMs={2000}
                   deleteSpeedMs={40}
@@ -86,7 +86,7 @@ export default function Home() {
 
               {/* Subtitle */}
               <motion.p
-                className="text-lg sm:text-xl opacity-80 max-w-2xl leading-relaxed"
+                className="text-lg sm:text-xl opacity-80 max-w-2xl leading-relaxed text-theme"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -103,7 +103,7 @@ export default function Home() {
               >
                 <Link
                   href="#projects"
-                  className="group px-8 py-4 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-all text-base font-medium"
+                  className="group px-8 py-4 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 hover:bg-[var(--accent)]/20 transition-all text-base font-medium accent-theme"
                   data-scramble
                 >
                   <span className="flex items-center gap-2">
@@ -112,17 +112,9 @@ export default function Home() {
                   </span>
                 </Link>
 
-                <Link
-                  href="#services"
-                  className="px-8 py-4 rounded-full border border-white/20 hover:bg-white/10 transition-all text-base"
-                  data-scramble
-                >
-                  {t('hero.cta.services')}
-                </Link>
-
                 <a
                   href="/contact"
-                  className="px-8 py-4 rounded-full border border-white/20 hover:bg-white/10 transition-all text-base"
+                  className="px-8 py-4 rounded-full btn-theme transition-all text-base text-theme"
                   data-scramble
                 >
                   {t('hero.cta.letsTalk')}
@@ -234,7 +226,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 1.4 }}
           >
             <motion.div
-              className="flex flex-col items-center gap-2 text-white/60 hover:text-white/80 transition-colors cursor-pointer"
+              className="flex flex-col items-center gap-2 text-theme/60 hover:text-theme/80 transition-colors cursor-pointer"
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
@@ -277,25 +269,27 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="about">
-        <AboutMe />
-      </Section>
+      <div className="space-y-8 sm:space-y-12">
+        <Section id="about">
+          <AboutMe />
+        </Section>
 
-      <Section id="services" bg="panel">
-        <Services />
-      </Section>
+        <Section id="services" bg="panel">
+          <Services />
+        </Section>
 
-      <Section id="projects">
-        <ProjectsOptimized />
-      </Section>
+        <Section id="projects">
+          <ProjectsOptimized />
+        </Section>
 
-      <Section id="skills" bg="panel">
-        <TechStackOptimized />
-      </Section>
+        <Section id="skills" bg="panel">
+          <TechStackOptimized />
+        </Section>
 
-      <Section id="faq">
-        <FAQ />
-      </Section>
+        <Section id="faq">
+          <FAQ />
+        </Section>
+      </div>
 
       {/* Contact form moved to /contact */}
 
