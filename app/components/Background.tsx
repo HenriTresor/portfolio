@@ -78,7 +78,7 @@ export default function Background() {
                 ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
                 const particleColor = resolvedTheme === "dark"
                     ? `rgba(154, 199, 255, ${particle.opacity})`
-                    : `rgba(59, 130, 246, ${particle.opacity})`;
+                    : `rgba(49, 95, 134, ${particle.opacity})`;
                 ctx.fillStyle = particleColor;
                 ctx.fill();
 
@@ -146,15 +146,15 @@ export default function Background() {
             {/* Floating orbs - theme aware */}
             <div className={`absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse ${resolvedTheme === "dark"
                 ? "bg-gradient-to-r from-blue-500/5 to-purple-500/5"
-                : "bg-gradient-to-r from-blue-500/3 to-purple-500/3"
+                : "bg-gradient-to-r from-sky-500/3 to-slate-400/3"
                 }`} />
             <div className={`absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl animate-pulse ${resolvedTheme === "dark"
                 ? "bg-gradient-to-r from-pink-500/5 to-blue-500/5"
-                : "bg-gradient-to-r from-pink-500/3 to-blue-500/3"
+                : "bg-gradient-to-r from-slate-400/3 to-sky-500/3"
                 }`} style={{ animationDelay: '1s' }} />
             <div className={`absolute top-1/2 left-1/2 w-64 h-64 rounded-full blur-3xl animate-pulse ${resolvedTheme === "dark"
                 ? "bg-gradient-to-r from-cyan-500/5 to-purple-500/5"
-                : "bg-gradient-to-r from-cyan-500/3 to-purple-500/3"
+                : "bg-gradient-to-r from-sky-500/3 to-slate-400/3"
                 }`} style={{ animationDelay: '2s' }} />
         </div>
     );

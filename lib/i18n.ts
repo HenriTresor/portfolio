@@ -1,3 +1,4 @@
+import { portfolioCopy } from "./portfolioCopy";
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -5,8 +6,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
     en: {
         translation: {
+            portfolio: portfolioCopy.en,
             hero: {
-                badge: "👋 Available for new projects",
+                badge: "Available for new projects",
                 greeting: "Hi, I'm ",
                 subtitle: "I create digital solutions that",
                 typewriter: [
@@ -16,7 +18,7 @@ const resources = {
                     "connect communities",
                     "empower users"
                 ],
-                description: "Full-stack & mobile developer crafting web apps, mobile solutions, and AI-powered tools from concept to launch. I promise my code is cleaner than my desk! 💻✨",
+                description: "Full-stack and mobile developer building practical web and mobile products from concept to launch.",
                 cta: {
                     viewWork: "View My Work",
                     services: "Services",
@@ -34,11 +36,11 @@ const resources = {
                 text: "I create digital solutions that work everywhere. Web apps, mobile apps, and everything in between.",
                 crossPlatform: {
                     title: "Cross-Platform",
-                    description: "Web, mobile, and desktop apps that work everywhere. No platform left behind! 🌍"
+                    description: "Web, mobile, and desktop apps that work everywhere. No platform left behind! "
                 },
                 fullStack: {
                     title: "Full-Stack",
-                    description: "From design to deployment, I handle it all. Stack overflow? More like stack awesome! 📚"
+                    description: "From design to deployment, I handle it all. Stack overflow? More like stack awesome! "
                 },
                 cta: {
                     workTogether: "Let's Work Together",
@@ -55,33 +57,33 @@ const resources = {
             },
             services: {
                 title: "Services",
-                subtitle: "I help businesses and startups build comprehensive digital solutions across web, mobile, and beyond. No service interruptions! 📡",
+                subtitle: "Web, mobile, and product development shaped around what people need to do.",
                 quote: "Great design is not just what it looks like — great design is how it works.",
                 quoteAuthor: "— Steve Jobs",
                 cta: {
-                    ready: "Ready to bring your vision to life? Let's make it pixel perfect! 🎨",
+                    ready: "Ready to bring your vision to life? Let's make it pixel perfect! ",
                     startProject: "Start a project",
                     viewCredentials: "View credentials"
                 },
                 items: [
                     {
                         title: "Full-Stack Web Development",
-                        description: "Complete web applications using React, Next.js, Node.js, and modern databases. Scalable architecture from frontend to backend. Full-stack means I've got your back(end)! 💪",
+                        description: "Complete web applications using React, Next.js, Node.js, and modern databases. Scalable architecture from frontend to backend. Full-stack means I've got your back(end)! ",
                         features: ["React & Next.js", "Node.js & APIs", "Database Design", "Cloud Deployment"]
                     },
                     {
                         title: "Mobile App Development",
-                        description: "Native and cross-platform mobile applications for iOS and Android using React Native, Flutter, and native technologies. Apps so good, they'll make your phone happy! 📱😊",
+                        description: "Native and cross-platform mobile applications for iOS and Android using React Native, Flutter, and native technologies. Apps so good, they'll make your phone happy! ",
                         features: ["React Native", "Flutter", "iOS Development", "Android Development"]
                     },
                     {
                         title: "UI/UX Design & Motion",
-                        description: "Beautiful, intuitive interfaces with smooth animations and micro-interactions. Design systems that scale across platforms. Motion graphics that won't make you motion sick! 🎭",
+                        description: "Beautiful, intuitive interfaces with smooth animations and micro-interactions. Design systems that scale across platforms. Motion graphics that won't make you motion sick! ",
                         features: ["Design Systems", "Framer Motion", "Prototyping", "User Research"]
                     },
                     {
                         title: "Technical Consulting",
-                        description: "Strategic technical guidance, architecture planning, and technology stack recommendations for your digital projects. I'll help you debug your decisions! 🔍",
+                        description: "Strategic technical guidance, architecture planning, and technology stack recommendations for your digital projects. I'll help you debug your decisions! ",
                         features: ["Architecture Planning", "Tech Stack Selection", "Code Review", "Performance Audit"]
                     }
                 ]
@@ -89,8 +91,8 @@ const resources = {
             projects: {
                 badge: "Featured Work",
                 title: "Projects",
-                subtitle: "From AI-powered tools to accessibility platforms - showcasing innovative solutions that make a difference. Code that actually works? Revolutionary! 🚀",
-                cta: "Interested in working together? Let's commit to something great! 💾",
+                subtitle: "Selected web and mobile products with a clear problem to solve.",
+                cta: "Interested in working together? Let's commit to something great! ",
                 startProject: "Start a Project",
                 viewAll: "View All Projects",
                 stats: {
@@ -102,7 +104,7 @@ const resources = {
             skills: {
                 badge: "Tech Arsenal",
                 title: "Skills",
-                subtitle: "Technologies I use to bring ideas to life across all platforms. Warning: May contain traces of genius! 🧠",
+                subtitle: "Technologies I use across product design and development.",
                 categories: {
                     frontend: "Frontend",
                     mobile: "Mobile & Other",
@@ -114,7 +116,7 @@ const resources = {
                     technologies: "Technologies",
                     categories: "Categories",
                     years: "Years Experience",
-                    learning: "Learning (Never stops! 📚)"
+                    learning: "Learning (Never stops! )"
                 },
                 quote: "The best way to predict the future is to create it.",
                 quoteAuthor: "— Peter Drucker"
@@ -122,35 +124,35 @@ const resources = {
             faq: {
                 badge: "Got Questions?",
                 title: "FAQ",
-                subtitle: "Everything you need to know about working with me (no bugs included! 🐛)",
+                subtitle: "A few details about how I work.",
                 stillQuestions: "Still have questions?",
-                stillQuestionsDesc: "I'd love to discuss your project and answer any specific questions you might have. Promise I won't byte! 💾",
+                stillQuestionsDesc: "I'd love to discuss your project and answer any specific questions you might have. Promise I won't byte! ",
                 getInTouch: "Get in touch",
                 sendEmail: "Send email",
                 items: [
                     {
                         question: "What services do you offer?",
-                        answer: "I provide full-stack web development, mobile app development (React Native & Flutter), UI/UX design, and technical consulting. From concept to deployment, I handle the entire development lifecycle. Think of me as your digital Swiss Army knife! 🔧"
+                        answer: "I work on full-stack web applications, mobile apps, product interfaces, and technical planning. The scope depends on what your product needs."
                     },
                     {
-                        question: "How long does a typical project take?",
-                        answer: "Project timelines vary based on complexity. A simple website takes 2-4 weeks, while complex web applications or mobile apps typically take 6-12 weeks. I provide detailed timelines during our initial consultation. Good code takes time - like a fine wine, but with less debugging! 🍷"
+                        question: "How long does a project take?",
+                        answer: "Timelines depend on the scope and the state of the project. After discussing the requirements, I can propose a schedule with clear milestones."
                     },
                     {
                         question: "Do you develop mobile apps?",
-                        answer: "Yes! I specialize in cross-platform mobile development using React Native and Flutter. This allows your app to work on both iOS and Android with a single codebase, saving time and costs. It's like having your cake and eating it too, but with fewer calories! 📱"
+                        answer: "Yes. I build cross-platform mobile applications with React Native and Flutter for iOS and Android."
                     },
                     {
-                        question: "What's your development process?",
-                        answer: "I follow an agile approach: Discovery & Planning → Design & Prototyping → Development & Testing → Launch & Support. You'll receive regular updates and can provide feedback throughout the process. No black boxes here - everything is transparent! 📦"
+                        question: "What is your process?",
+                        answer: "I start by understanding the problem and the users, then define the scope, build iteratively, test, and prepare the product for launch."
                     },
                     {
-                        question: "Do you provide ongoing support?",
-                        answer: "Absolutely! I offer maintenance packages that include bug fixes, security updates, performance optimizations, and feature enhancements. I'm committed to long-term success of your project. Think of me as your digital guardian angel! 👼"
+                        question: "Can you support a product after launch?",
+                        answer: "Yes. We can plan ongoing improvements, fixes, and maintenance as part of the project scope."
                     },
                     {
-                        question: "Can you work with my existing team?",
-                        answer: "Yes, I collaborate well with existing teams. Whether you need a full-stack developer, technical consultant, or someone to lead frontend development, I adapt to your team's workflow and processes. I play well with others - no merge conflicts in personality! 🤝"
+                        question: "Can you work with an existing team?",
+                        answer: "Yes. I can join an existing workflow and collaborate with designers, developers, and product teams."
                     }
                 ]
             },
@@ -179,8 +181,9 @@ const resources = {
     },
     rw: {
         translation: {
+            portfolio: portfolioCopy.rw,
             hero: {
-                badge: "👋 Ndi hano kubashaka imirimo mishya",
+                badge: " Ndi hano kubashaka imirimo mishya",
                 greeting: "Muraho, ndi ",
                 subtitle: "Nkora ibisubizo bya digitale",
                 typewriter: [
@@ -318,8 +321,9 @@ const resources = {
     },
     fr: {
         translation: {
+            portfolio: portfolioCopy.fr,
             hero: {
-                badge: "👋 Disponible pour de nouveaux projets",
+                badge: " Disponible pour de nouveaux projets",
                 greeting: "Salut, je suis ",
                 subtitle: "Je crée des solutions numériques qui",
                 typewriter: [
@@ -452,8 +456,9 @@ const resources = {
     },
     de: {
         translation: {
+            portfolio: portfolioCopy.de,
             hero: {
-                badge: "👋 Verfügbar für neue Projekte",
+                badge: " Verfügbar für neue Projekte",
                 greeting: "Hi, ich bin ",
                 subtitle: "Ich entwickle digitale Lösungen, die",
                 typewriter: [

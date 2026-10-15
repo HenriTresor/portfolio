@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, User, Zap, Rocket, Settings, MessageCircle, FileDown, Github, HelpCircle, Menu } from "lucide-react";
+import { Home, User, Zap, Rocket, Settings, MessageCircle, FileDown, Github, HelpCircle, Menu, ArrowRight } from "lucide-react";
 import { useTranslation } from 'react-i18next';
 import Link from "next/link";
 import { useNavbar } from './ClientLayout';
+import LanguageSwitcher from './LanguageSwitcher';
+import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Navbar() {
     const { t } = useTranslation();
-    const { isNavbarOpen, setIsNavbarOpen } = useNavbar();
+    const { isNavbarVisible, setIsNavbarOpen } = useNavbar();
     const [open, setOpen] = useState(false);
 
     // Sync local state with context
@@ -35,13 +37,15 @@ export default function Navbar() {
 
     return (
         <>
-            <header className="fixed top-0 inset-x-0 z-50 pointer-events-none">
-                <div className="px-5 py-4 sm:py-5 flex items-center justify-between bg-transparent backdrop-blur-none border-none">
-                    <Link href="/#hero" className="pointer-events-auto select-none">
-                        <span className="text-2xl font-semibold tracking-tight text-theme">HT</span>
-                    </Link>
+            <header
+                className={"fixed top-0 inset-x-0 z-50 pointer-events-none transition-transform duration-[550ms] ease-[cubic-bezier(.22,1,.36,1)] will-change-transform " + (isNavbarVisible || open ? "translate-y-0" : "-translate-y-full")}
+                aria-hidden={!isNavbarVisible && !open}
+            >
+                <div className="px-5 py-4 sm:py-5 flex items-center justify-end bg-transparent backdrop-blur-none border-none">
                     <motion.button
-                        aria-label="Open menu"
+                        aria-label={t("portfolio.menu.open")}
+                        aria-expanded={open}
+                        tabIndex={isNavbarVisible || open ? 0 : -1}
                         className="pointer-events-auto glass rounded-full p-3 hover-light transition-all group"
                         onClick={() => setOpen(true)}
                         whileHover={{ scale: 1.05 }}
@@ -63,7 +67,12 @@ export default function Navbar() {
                             ease: [0.23, 1, 0.320, 1],
                             opacity: { duration: 0.3 }
                         }}
-                        className="fixed inset-0 z-50 bg-[var(--background)] overflow-y-auto"
+                        className="fixed inset-0 z-50 bg-[var(--background)] overflow-x-hidden overflow-y-auto overscroll-contain"
+                        style={{ touchAction: "pan-y", WebkitOverflowScrolling: "touch" }}
+                        data-lenis-prevent
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={t("portfolio.menu.title")}
                     >
                         {/* Animated Background */}
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -113,22 +122,11 @@ export default function Navbar() {
                             exit={{ y: -100, opacity: 0 }}
                             transition={{ duration: 0.5, ease: [0.23, 1, 0.320, 1] }}
                         >
-                            <Link
-                                href="/#hero"
-                                className="select-none"
-                                onClick={() => setOpen(false)}
-                            >
-                                <motion.div
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-[var(--accent)] to-[var(--foreground)] bg-clip-text text-transparent">
-                                        Henri Tresor
-                                    </span>
-                                </motion.div>
-                            </Link>
+                            <span className="text-sm uppercase tracking-[.2em] accent-theme">{t("portfolio.menu.title")}</span>
+                            <div className="flex items-center gap-3">
+                              <div className="sm:hidden"><LanguageSwitcher /></div>
                             <motion.button
-                                aria-label="Close menu"
+                                aria-label={t("portfolio.menu.close")}
                                 className="glass rounded-full p-3 hover-light transition-all group text-theme"
                                 onClick={() => setOpen(false)}
                                 whileHover={{ scale: 1.1, rotate: 180 }}
@@ -138,6 +136,7 @@ export default function Navbar() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </motion.button>
+                            </div>
                         </motion.div>
 
                         {/* Main Content */}
@@ -149,6 +148,7 @@ export default function Navbar() {
                             transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.320, 1] }}
                         >
                             <div className="max-w-4xl mx-auto">
+                                <div className="sm:hidden mb-8"><ThemeSwitcher /></div>
                                 {/* Large Navigation Links */}
                                 <motion.div
                                     initial={{ opacity: 0, y: 40 }}
@@ -272,7 +272,7 @@ export default function Navbar() {
                                                 </div>
                                                 <div>
                                                     <div className="font-semibold">{t('footer.downloadCV')}</div>
-                                                    <div className="text-sm opacity-70">View my credentials</div>
+                                                    <div className="text-sm opacity-70">{t("portfolio.menu.credentials")}</div>
                                                 </div>
                                             </motion.a>
 
@@ -288,8 +288,8 @@ export default function Navbar() {
                                                     <Github className="w-6 h-6" />
                                                 </div>
                                                 <div>
-                                                    <div className="font-semibold">GitHub Profile</div>
-                                                    <div className="text-sm opacity-70">50+ repositories</div>
+                                                    <div className="font-semibold">{t("portfolio.menu.githubProfile")}</div>
+                                                    <div className="text-sm opacity-70">{t("portfolio.menu.exploreCode")}</div>
                                                 </div>
                                             </motion.a>
                                         </div>
@@ -311,9 +311,9 @@ export default function Navbar() {
                                             transition={{ duration: 1, delay: 1.3 }}
                                         />
                                         <div className="relative z-10">
-                                            <h3 className="text-xl font-bold text-[var(--accent)] mb-2">{t('footer.getInTouch')}</h3>
+                                            <h3 className="text-xl font-bold text-[var(--accent)] mb-2">{t("portfolio.menu.contactHeading")}</h3>
                                             <p className="text-sm opacity-90 leading-relaxed mb-6">
-                                                {t('footer.description')}
+                                                {t("portfolio.menu.contactDescription")}
                                             </p>
                                             <motion.a
                                                 href="/contact"
@@ -322,13 +322,8 @@ export default function Navbar() {
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
                                             >
-                                                <span>{t('footer.startProject')}</span>
-                                                <motion.span
-                                                    whileHover={{ x: 4 }}
-                                                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                                >
-                                                    →
-                                                </motion.span>
+                                                <span>{t("portfolio.menu.contactAction")}</span>
+                                                <ArrowRight className="w-4 h-4" aria-hidden="true" />
                                             </motion.a>
                                         </div>
                                     </motion.div>
@@ -342,7 +337,7 @@ export default function Navbar() {
                                     transition={{ duration: 0.5, delay: 1.6 }}
                                     className="text-center pt-12 pb-8 mt-16 border-t border-white/10"
                                 >
-                                    <p className="text-sm opacity-60">© 2024 Henri Tresor. {t('footer.copyright')}</p>
+                                    <p className="text-sm opacity-60 notranslate" translate="no">{"\u00A9"} {new Date().getFullYear()} <span className="fixed-name" aria-hidden="true" /><span className="sr-only" translate="no">Henri Tresor</span></p>
                                 </motion.div>
                             </div>
                         </motion.div>

@@ -57,7 +57,7 @@ html, body {
 
 /* Light mode accent color */
 .light {
-  --accent: #7c3aed; /* Violet-600 for better contrast in light mode */
+  --accent: #315f86; /* Muted ink blue for light mode */
 }
 
 /* Dark/light theme */
@@ -112,7 +112,7 @@ html, body {
 /* Light mode aurora */
 .light .aurora::before,
 .light .aurora::after {
-  background: conic-gradient(from 180deg at 50% 50%, rgba(59,130,246,0.2), transparent, rgba(59,130,246,0.1), transparent);
+  background: conic-gradient(from 180deg at 50% 50%, rgba(49,95,134,0.16), transparent, rgba(49,95,134,0.08), transparent);
 }
 
 @keyframes caretBlink { 0%, 60% { opacity: 1 } 61%, 100% { opacity: 0 } }
@@ -220,5 +220,5 @@ a.underline { text-decoration: underline; text-underline-offset: 2px; }
 }
 
 .light .accent-theme {
-  color: #7c3aed; /* Violet-600 for light mode */
+  color: var(--accent);
 }

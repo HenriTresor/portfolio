@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
+import "./portfolio.css";
+import "lenis/dist/lenis.css";
 import CustomCursor from "./components/CustomCursor";
-import NavDots from "./components/NavDots";
 import Background from "./components/Background";
 import TextScrambler from "./components/TextScrambler";
 import Footer from "./components/Footer";
+import IntroScreen from "./components/IntroScreen";
+import SmoothScroll from "./components/SmoothScroll";
 import I18nProvider from "./components/I18nProvider";
 import ClientLayout from "./components/ClientLayout";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -50,8 +53,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" translate="no" className="notranslate" suppressHydrationWarning>
       <head>
+        <meta name="google" content="notranslate" />
+        <script dangerouslySetInnerHTML={{ __html: "(function(){try{var saved=localStorage.getItem(\"theme\");var choice=saved===\"light\"||saved===\"dark\"?saved:(matchMedia(\"(prefers-color-scheme: dark)\").matches?\"dark\":\"light\");document.documentElement.classList.add(choice);document.documentElement.style.colorScheme=choice}catch(e){}})();" }} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
         <link rel="apple-touch-icon" href="/favicon.svg?v=2" />
         <link rel="shortcut icon" href="/favicon.svg?v=2" />
@@ -60,14 +65,16 @@ export default function RootLayout({
       <body className={`${syne.variable} antialiased`}>
         <ThemeProvider>
           <I18nProvider>
+            <SmoothScroll>
+            <IntroScreen />
             <Background />
             <CustomCursor />
             <TextScrambler />
-            <NavDots />
             <ClientLayout>
               {children}
             </ClientLayout>
             <Footer />
+            </SmoothScroll>
           </I18nProvider>
         </ThemeProvider>
       </body>
