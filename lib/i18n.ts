@@ -8,7 +8,6 @@ const resources = {
         translation: {
             portfolio: portfolioCopy.en,
             hero: {
-                badge: "Available for new projects",
                 greeting: "Hi, I'm ",
                 subtitle: "I create digital solutions that",
                 typewriter: [
@@ -183,7 +182,6 @@ const resources = {
         translation: {
             portfolio: portfolioCopy.rw,
             hero: {
-                badge: " Ndi hano kubashaka imirimo mishya",
                 greeting: "Muraho, ndi ",
                 subtitle: "Nkora ibisubizo bya digitale",
                 typewriter: [
@@ -323,7 +321,6 @@ const resources = {
         translation: {
             portfolio: portfolioCopy.fr,
             hero: {
-                badge: " Disponible pour de nouveaux projets",
                 greeting: "Salut, je suis ",
                 subtitle: "Je crée des solutions numériques qui",
                 typewriter: [
@@ -458,7 +455,6 @@ const resources = {
         translation: {
             portfolio: portfolioCopy.de,
             hero: {
-                badge: " Verfügbar für neue Projekte",
                 greeting: "Hi, ich bin ",
                 subtitle: "Ich entwickle digitale Lösungen, die",
                 typewriter: [

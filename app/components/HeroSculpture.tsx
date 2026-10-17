@@ -2,8 +2,8 @@
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { RoundedBox } from "@react-three/drei";
-import { useReducedMotion, type MotionValue } from "framer-motion";
-import { Component, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useMotionValue, useReducedMotion, type MotionValue } from "framer-motion";
+import { Component, useEffect, useMemo, useRef, useState, type PointerEvent, type ReactNode } from "react";
 import { CanvasTexture, Group, InstancedMesh, MeshBasicMaterial, Object3D, SRGBColorSpace } from "three";
 import { useTheme } from "./ThemeProvider";
 
@@ -37,7 +37,7 @@ function createPieces(): Piece[] {
 
   const rows = [
     { y: 0.55, labels: "qwertyuiop", first: -1.755 },
-    { y: 0.18, labels: "asdfghjkl;", first: -1.72 },
+    { y: 0.18, labels: "asdfghjkl;'", first: -1.95 },
     { y: -0.19, labels: "zxcvbnm,.", first: -1.56 },
   ];
   rows.forEach((row, rowIndex) => {
@@ -120,7 +120,9 @@ const ASH = PIECES.flatMap((piece, pieceIndex) =>
   }),
 );
 
-function Keyboard({ ready, onAssembled, keyStroke, pointerX, pointerY, hoverX, hoverY, scroll, dark, still, visible, compact }: KeyboardProps & {
+function Keyboard({ ready, onAssembled, keyStroke, pointerX, pointerY, hoverX, hoverY, scroll, dragPitch, dragYaw, dark, still, visible, compact }: KeyboardProps & {
+  dragPitch: MotionValue<number>;
+  dragYaw: MotionValue<number>;
   dark: boolean;
   still: boolean;
   visible: boolean;
@@ -162,9 +164,9 @@ function Keyboard({ ready, onAssembled, keyStroke, pointerX, pointerY, hoverX, h
   }, [ready, visible, keyStroke, invalidate]);
 
   useEffect(() => {
-    const unsubs = [pointerX, pointerY, hoverX, hoverY, scroll].map((value) => value.on("change", invalidate));
+    const unsubs = [pointerX, pointerY, hoverX, hoverY, scroll, dragPitch, dragYaw].map((value) => value.on("change", invalidate));
     return () => unsubs.forEach((unsubscribe) => unsubscribe());
-  }, [pointerX, pointerY, hoverX, hoverY, scroll, invalidate]);
+  }, [pointerX, pointerY, hoverX, hoverY, scroll, dragPitch, dragYaw, invalidate]);
 
   const colors: Record<Tone, string> = dark
     ? { frame: "#314b61", deck: "#183249", key: "#a6c0d2", muted: "#6f8ba1", accent: "#dcecf5" }
@@ -243,8 +245,8 @@ function Keyboard({ ready, onAssembled, keyStroke, pointerX, pointerY, hoverX, h
     }
 
     const ease = 1 - Math.exp(-Math.min(delta, 0.05) * 4);
-    const targetX = -0.48 + (still ? 0 : pointerY.get() / 9) * 0.06;
-    const targetY = -0.25 + (still ? 0 : pointerX.get() / 12) * 0.09 + scroll.get() * 0.08;
+    const targetX = -0.48 + dragPitch.get() + (still ? 0 : pointerY.get() / 9) * 0.06;
+    const targetY = -0.25 + dragYaw.get() + (still ? 0 : pointerX.get() / 12) * 0.09 + scroll.get() * 0.08;
     root.current.rotation.x += (targetX - root.current.rotation.x) * ease;
     root.current.rotation.y += (targetY - root.current.rotation.y) * ease;
 
@@ -304,6 +306,67 @@ export default function HeroSculpture({ ready, onAssembled, keyStroke, pointerX,
   const container = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(true);
   const [compact, setCompact] = useState(false);
+  const dragPitch = useMotionValue(0);
+  const dragYaw = useMotionValue(0);
+  const dragPosition = useRef({ x: 0, y: 0 });
+  const dragStart = useRef<{ pointerId: number; mode: "move" | "rotate"; x: number; y: number; offsetX: number; offsetY: number; pitch: number; yaw: number; minX: number; maxX: number; minY: number; maxY: number } | null>(null);
+
+  const startDrag = (event: PointerEvent<HTMLDivElement>) => {
+    if (!ready || (event.pointerType === "mouse" && event.button !== 0 && event.button !== 2)) return;
+    const mode = event.shiftKey || event.button === 2 ? "rotate" : "move";
+    const keyboard = event.currentTarget;
+    const frame = keyboard.closest(".hero-frame");
+    if (!frame) return;
+    const bounds = keyboard.getBoundingClientRect();
+    const frameBounds = frame.getBoundingClientRect();
+    const baseLeft = bounds.left - dragPosition.current.x;
+    const baseTop = bounds.top - dragPosition.current.y;
+    dragStart.current = {
+      pointerId: event.pointerId, mode, x: event.clientX, y: event.clientY,
+      offsetX: dragPosition.current.x, offsetY: dragPosition.current.y,
+      pitch: dragPitch.get(), yaw: dragYaw.get(),
+      minX: frameBounds.left - baseLeft, maxX: frameBounds.right - baseLeft - bounds.width,
+      minY: frameBounds.top - baseTop, maxY: frameBounds.bottom - baseTop - bounds.height,
+    };
+    event.preventDefault();
+    event.currentTarget.setPointerCapture(event.pointerId);
+    event.currentTarget.dataset.dragging = "true";
+  };
+
+  const moveDrag = (event: PointerEvent<HTMLDivElement>) => {
+    const start = dragStart.current;
+    if (!start || start.pointerId !== event.pointerId) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const keyboard = event.currentTarget;
+    if (start.mode === "rotate") {
+      const bounds = keyboard.getBoundingClientRect();
+      dragYaw.set(Math.max(-0.9, Math.min(0.9, start.yaw + (event.clientX - start.x) / bounds.width * 2.2)));
+      dragPitch.set(Math.max(-0.55, Math.min(0.55, start.pitch + (event.clientY - start.y) / bounds.height * 1.4)));
+      return;
+    }
+    const x = Math.max(start.minX, Math.min(start.maxX, start.offsetX + event.clientX - start.x));
+    const y = Math.max(start.minY, Math.min(start.maxY, start.offsetY + event.clientY - start.y));
+    dragPosition.current = { x, y };
+    const device = keyboard.parentElement;
+    device?.style.setProperty("--keyboard-drag-x", `${x}px`);
+    device?.style.setProperty("--keyboard-drag-y", `${y}px`);
+  };
+
+  const endDrag = (event: PointerEvent<HTMLDivElement>) => {
+    if (dragStart.current?.pointerId !== event.pointerId) return;
+    dragStart.current = null;
+    delete event.currentTarget.dataset.dragging;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+  };
+
+  useEffect(() => {
+    const device = container.current?.parentElement;
+    return () => {
+      device?.style.removeProperty("--keyboard-drag-x");
+      device?.style.removeProperty("--keyboard-drag-y");
+    };
+  }, []);
 
   useEffect(() => {
     const element = container.current;
@@ -322,10 +385,10 @@ export default function HeroSculpture({ ready, onAssembled, keyStroke, pointerX,
   }, []);
 
   return (
-    <div ref={container} className="hero-sculpture" aria-hidden="true">
+    <div ref={container} className="hero-sculpture" aria-hidden="true" onPointerDown={startDrag} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag} onContextMenu={(event) => event.preventDefault()}>
       <SculptureBoundary>
         <Canvas
-          camera={{ position: [0, 0, 8.2], fov: 34, near: 0.1, far: 30 }}
+          camera={{ position: [0, 0, 6.1], fov: 34, near: 0.1, far: 30 }}
           dpr={compact ? 1 : [1, 1.5]}
           gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}
           frameloop={visible ? "demand" : "never"}
@@ -334,7 +397,7 @@ export default function HeroSculpture({ ready, onAssembled, keyStroke, pointerX,
           <ambientLight intensity={1.25} />
           <directionalLight position={[3, 5, 6]} intensity={3.2} color="#ffffff" />
           <directionalLight position={[-4, -2, 1]} intensity={1.5} color={resolvedTheme === "dark" ? "#7baed9" : "#89a8c0"} />
-          <Keyboard ready={ready} onAssembled={onAssembled} keyStroke={keyStroke} pointerX={pointerX} pointerY={pointerY} hoverX={hoverX} hoverY={hoverY} scroll={scroll} dark={resolvedTheme === "dark"} still={!!reduceMotion} visible={visible} compact={compact} />
+          <Keyboard ready={ready} onAssembled={onAssembled} keyStroke={keyStroke} pointerX={pointerX} pointerY={pointerY} hoverX={hoverX} hoverY={hoverY} scroll={scroll} dragPitch={dragPitch} dragYaw={dragYaw} dark={resolvedTheme === "dark"} still={!!reduceMotion} visible={visible} compact={compact} />
         </Canvas>
       </SculptureBoundary>
     </div>

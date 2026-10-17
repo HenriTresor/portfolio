@@ -4,7 +4,7 @@ export const portfolioCopy = {
     meta: { title: "Henri Tresor | Full-stack & mobile developer" },
     sound: { on: "Music on", off: "Music off", play: "Play ambient music", mute: "Mute ambient music" },
     theme: { label: "Appearance", light: "Light mode", dark: "Dark mode", system: "Use system theme" },
-    hero: { aria: "Introduction", location: "KIGALI, RWANDA", line1: "Full-stack & mobile developer", line2: "building digital products with purpose.", scroll: "Scroll to explore" },
+    hero: { booting: "Booting...", typingPrefix: "I build", typingPhrases: ["web applications.", "mobile applications.", "the systems behind them."], aria: "Introduction", location: "KIGALI, RWANDA", scroll: "Scroll to explore", keyboardGuide: { label: "Keyboard guide", move: "Drag to move it around the hero.", rotate: "Shift-drag or right-drag to rotate.", hover: "Hover over the keys to see them respond." } },
     about: {
       eyebrow: "About", heading1: "Thoughtful", heading2: "software.", headingAccent: "Built to last.",
       lead: "I'm a full-stack and mobile developer. I build practical digital products that are considered from the first interaction to the last line of code.",
@@ -54,7 +54,7 @@ export const portfolioCopy = {
     meta: { title: "Henri Tresor | Ukora porogaramu za web na mobile" },
     sound: { on: "Umuziki urimo", off: "Umuziki wazimye", play: "Fungura umuziki", mute: "Zimya umuziki" },
     theme: { label: "Imigaragarire", light: "Urumuri", dark: "Umwijima", system: "Kurikiza insanganyamatsiko ya sisitemu" },
-    hero: { aria: "Intangiriro", location: "KIGALI, U RWANDA", line1: "Nkora porogaramu za web na mobile", line2: "zihindura ibitekerezo ibisubizo bifatika.", scroll: "Komeza usuzume" },
+    hero: { booting: "Sisitemu iratangira...", typingPrefix: "Nubaka", typingPhrases: ["porogaramu za web.", "porogaramu za mobile.", "sisitemu ziri inyuma yazo."], aria: "Intangiriro", location: "KIGALI, U RWANDA", scroll: "Komeza usuzume", keyboardGuide: { label: "Uko ukoresha klavye", move: "Yikurure uyimure aho ushaka muri iki gice.", rotate: "Fata Shift uyikurure cyangwa ukoreshe buto y\'iburyo uyizengurutse.", hover: "Shyira imbeba hejuru y\'utumenyetso urebe uko twitabira." } },
     about: {
       eyebrow: "Ibyanjye", heading1: "Porogaramu", heading2: "zitekerejweho.", headingAccent: "Zubakiwe kuramba.",
       lead: "Nkora porogaramu za web na mobile. Nubaka ibisubizo bifatika, nitaye ku mikorere yabyo kuva umuntu abitangiye kugeza ku ikoranabuhanga ribyubaka.",
@@ -104,7 +104,7 @@ export const portfolioCopy = {
     meta: { title: "Henri Tresor | Développeur web et mobile" },
     sound: { on: "Musique active", off: "Musique coupee", play: "Activer la musique", mute: "Couper la musique" },
     theme: { label: "Apparence", light: "Mode clair", dark: "Mode sombre", system: "Suivre le système" },
-    hero: { aria: "Introduction", location: "KIGALI, RWANDA", line1: "Développeur web et mobile", line2: "je crée des produits numériques utiles.", scroll: "Faire défiler pour découvrir" },
+    hero: { booting: "Démarrage...", typingPrefix: "Je crée", typingPhrases: ["des applications web.", "des applications mobiles.", "les systèmes qui les relient."], aria: "Introduction", location: "KIGALI, RWANDA", scroll: "Faire défiler pour découvrir", keyboardGuide: { label: "Guide du clavier", move: "Faites glisser le clavier pour le déplacer.", rotate: "Maintenez Maj ou utilisez le clic droit en glissant pour le faire pivoter.", hover: "Survolez les touches pour voir leur réaction." } },
     about: {
       eyebrow: "À propos", heading1: "Des logiciels", heading2: "bien pensés.", headingAccent: "Faits pour durer.",
       lead: "Je développe des applications web et mobiles. Je crée des produits utiles, pensés de la première interaction jusqu'à la dernière ligne de code.",
@@ -154,7 +154,7 @@ export const portfolioCopy = {
     meta: { title: "Henri Tresor | Web- und Mobile-Entwickler" },
     sound: { on: "Musik an", off: "Musik aus", play: "Musik einschalten", mute: "Musik stummschalten" },
     theme: { label: "Darstellung", light: "Helles Design", dark: "Dunkles Design", system: "Systemeinstellung verwenden" },
-    hero: { aria: "Einleitung", location: "KIGALI, RUANDA", line1: "Full-Stack- und Mobile-Entwickler", line2: "ich entwickle digitale Produkte mit Sinn.", scroll: "Weiter scrollen" },
+    hero: { booting: "Systemstart...", typingPrefix: "Ich entwickle", typingPhrases: ["Webanwendungen.", "mobile Anwendungen.", "die Systeme dahinter."], aria: "Einleitung", location: "KIGALI, RUANDA", scroll: "Weiter scrollen", keyboardGuide: { label: "Tastaturhilfe", move: "Ziehen, um die Tastatur zu verschieben.", rotate: "Mit Umschalt oder der rechten Maustaste ziehen, um sie zu drehen.", hover: "Über die Tasten fahren, um ihre Reaktion zu sehen." } },
     about: {
       eyebrow: "Über mich", heading1: "Durchdachte", heading2: "Software.", headingAccent: "Für die Zukunft gebaut.",
       lead: "Ich entwickle Web- und Mobilanwendungen. Meine Produkte sind vom ersten Kontakt bis zur letzten Codezeile sorgfältig durchdacht.",

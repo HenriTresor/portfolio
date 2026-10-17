@@ -22,7 +22,7 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   title: "Henri Tresor - Full-Stack & Mobile Developer",
-  description: "Full-stack & mobile developer crafting web apps, mobile solutions, and AI-powered tools. Available for new projects.",
+  description: "Full-stack & mobile developer crafting web apps, mobile solutions, and AI-powered tools.",
   keywords: ["Henri Tresor", "Full-Stack Developer", "Mobile Developer", "React", "Next.js", "React Native", "Flutter"],
   authors: [{ name: "Henri Tresor" }],
   creator: "Henri Tresor",
